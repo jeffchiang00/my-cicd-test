@@ -1,3 +1,1 @@
-<?php
-echo "<h1>恭喜！本地虛擬機 GitHub Actions CI/CD 自動化上架成功！</h1>";
-?>
+<?php echo '<h1>本地虛擬機 CI/CD 演練大成功！</h1>'; ?>
