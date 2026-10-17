@@ -3,7 +3,7 @@ name: 雙系統本地虛擬機推演流水線 (密碼通關版)
 on:
   push:
     branches:
-      - main 
+      - main
 
 jobs:
   build-and-deploy:
@@ -21,9 +21,9 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           password: ${{ secrets.SERVER_PASSWORD }} # ⭕ 修正：改用密碼驗證
           port: ${{ secrets.SERVER_PORT }}
-          source: "wordpress-src/**/*"
+          source: "wordpress-src/"                      # 💡 修正 1：改為資料夾路徑，避免萬用字元比對失敗
           target: "/var/lib/docker/volumes/my-project_wp_data/_data/wp-content/"
-          strip_components: 1
+          strip_components: 1                           # 💡 修正 2：校正縮排，確保參數正常生效
 
       # === 遠端虛擬機執行區 ===
       - name: 3. SSH 登入虛擬機，執行 Nginx 路由重載
@@ -40,3 +40,4 @@ jobs:
                 docker compose exec -T nginx nginx -s reload
             fi
             echo "🎉 [Success] 本地虛擬機自動化網頁部署成功！"
+
