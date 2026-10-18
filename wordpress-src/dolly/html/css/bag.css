@@ -1,0 +1,224 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*========================================================================================*/
+/*!!!!購物清單頁面!!!!*/
+/*========================================================================================*/
+
+.bagPage { width:960px; height:auto; margin:0 auto; margin-top:40px; margin-bottom:100px;}
+
+.bagTitle { width:100%; height:90px; background:#f9f9f9; margin:0 auto; color:#000;
+font-size:25px; font-family:"Times New Roman", Times, serif; text-align:center; line-height:90px;}
+
+.bagBoxBottom { width:100%; height:10px; margin:0 auto;
+background:url(../images/cart/box_bottom.png);}
+
+.bagList { width:100%; height:auto; background:#f9f9f9;}
+
+.bagBorder { width:900px; height:20px; margin:0 auto;
+background:url(../images/cart/open_line.png) repeat-x;}
+
+
+
+/*清單名稱*/
+.bagListName { width:900px; height:80px; margin:0 auto;
+font-family:Arial,"微軟正黑體"; line-height:20px; font-size:13px;}
+
+.bagListName h3 { float:left; width:100px; height:20px; font-weight:100;
+margin-top:30px; color:#707070; text-align:left; text-align:center;}
+
+.bagListName h4 { float:left; width:450px; height:20px; font-weight:100;
+margin-left:80px; margin-top:30px; text-align:left;}
+
+.bagListName h5 { float:left; width:50px; height:20px; font-weight:100;
+margin-left:15px; margin-top:30px; text-align:center;}
+
+.bagListName h6 { float:left; width:50px; height:20px; font-weight:100;
+margin-left:45px; margin-top:30px; text-align:center;}
+
+
+
+
+
+/*購買的清單*/
+.bagShopList { width:900px; height:auto; margin:0 auto; margin-top:-20px; 
+font-family:Arial,"微軟正黑體"; font-size:13px; line-height:20px;
+text-align:center; color:#000; font-weight:bold; letter-spacing:1px;}
+.bagShopList ul {}
+.bagShopList ul li { width:100%; height:120px; margin-top:20px;
+background:url(../images/cart/cart_list_bg.png) repeat-x;}
+
+.bagShopList ul li .bagSLimg { float:left; width:100px; height:100px; background:#CCC;}
+.bagSLimg img { width:100%; height:auto;}
+
+.bagShopList ul li h3 { float:left; width:450px; height:100px; color:#4d9b99;
+margin-left:80px; text-align:left;}
+
+.texeC { display:table; width:100%; height:100px; *position:relative;}
+.texeC span { display:table-cell; *top:50%; *position:absolute; vertical-align:middle;}
+.texeC span .textCC { *position:relative; *top:-50%;}
+
+
+
+.bagShopList ul li h4 { float:left; width:50px; height:20px;
+margin-left:15px; margin-top:40px;}
+.bagShopListN { width:50px; height:20px; border:1px solid #cdcdcd; }
+
+
+.bagShopList ul li h5 { float:left; width:90px; height:20px;
+margin-left:50px; margin-top:40px; text-align:left;}
+
+.bagShopList ul li h6 { float:left; width:20px; height:20px;
+margin-left:30px; margin-top:40px;}
+.bagShopList ul li h6 a { display:block; width:20px; height:20px;
+text-indent:-9999px; background:url(../images/cart/cart_list_close.png) top;}
+
+.bagShopList ul li h6 a:hover { background:url(../images/cart/cart_list_close.png) bottom;}
+
+/*.bagShopListMoney { width:100%; height:130px;}
+.bagShopListMoney h2 { float:right; width:50px; height:30px;
+margin-right:15px; margin-top:50px; line-height:30px;}
+.bagShopListMoney h1 { float:right; width:110px; height:40px;
+margin-right:80px; margin-top:40px; line-height:40px;}
+
+.bagShopListMoney h1 .bagBigMoney { font-size:26px;}*/
+
+/*小計金額*/
+.bagShopListMoney { width:100%; height:60px;}
+.bagShopListMoney h2 { float:right; width:50px; height:30px;
+margin-right:15px; margin-top:20px; line-height:30px;
+font-size:11px;}
+.bagShopListMoney h1 { float:right; width:110px; height:40px;
+margin-right:70px; margin-top:10px; line-height:40px;}
+.bagShopListMoney h1 .bagBigMoney {}
+
+/*運費金額*/
+.bagShopListShipping { width:100%; height:50px;}
+.bagShopListShipping h2 { float:right; width:50px; height:30px;
+margin-right:15px; margin-top:5px; line-height:30px;
+font-size:11px;}
+.bagShopListShipping h1 { float:right; width:110px; height:40px;
+margin-right:70px; margin-top:-5px; line-height:40px;}
+.bagShopListShipping h1 .bagShippingMoney {}
+
+/*結算總金額*/
+.bagShopListTotal { width:100%; height:130px;}
+.bagShopListTotal h2 { float:right; width:50px; height:30px;
+margin-right:15px; margin-top:20px; line-height:30px;
+font-size:11px;}
+.bagShopListTotal h1 { float:right; width:110px; height:40px;
+margin-right:80px; margin-top:10px; line-height:40px;}
+.bagShopListTotal h1 .bagTotalMoney { font-size:26px;}
+
+
+@media screen and (max-width:480px){
+	/*========================================================================================*/
+	/*!!!!購物清單頁面!!!!*/
+	/*========================================================================================*/
+	
+	
+	.bagPage { width:96%; height:auto; margin:0 auto; margin-top:15px; margin-bottom:0px;}
+	
+	.bagTitle { width:100%; height:55px; background:#f9f9f9; margin:0 auto; color:#000;
+	font-size:20px; font-family:"Times New Roman", Times, serif; text-align:center; line-height:55px;}
+	
+	.bagBoxBottom { width:100%; height:10px; margin:0 auto;
+	background:url(../images/cart/box_bottom.png) center; background-size:100% 10px;}
+	
+	.bagList { width:100%; height:auto; background:#f9f9f9; margin-top:0px;}
+	
+	.bagBorder { width:96%; height:10px; margin:0 auto; margin-top:20px;
+	background:url(../images/cart/open_line.png) repeat-x;}
+	
+	
+	/*清單名稱*/
+	.bagListName { width:100%; height:30px; margin:0 auto;
+	font-family:Arial,"微軟正黑體"; line-height:20px; font-size:11px;}
+	
+	.bagListName h3 { float:left; width:50px; height:20px;
+	margin-left:5px; margin-top:15px; text-align:left; text-align:center;}
+	
+	.bagListName h4 { float:left; width:100px; height:20px;
+	margin-left:5px; margin-top:15px; text-align:left;
+	line-height:inherit;}
+	
+	.bagListName h5 { float:left; width:30px; height:20px;
+	margin-left:15px; margin-top:15px; text-align:center;}
+	
+	.bagListName h6 { float:left; width:50px; height:20px;
+	margin-left:30px; margin-top:15px; text-align:right;}
+	
+	
+	
+	/*購買的清單*/
+	.bagShopList { width:96%; height:auto; margin:0 auto;
+	font-family:Arial,"微軟正黑體"; font-size:9px; line-height:15px;
+	text-align:center; color:#000; font-weight:bold; letter-spacing:1px;}
+	.bagShopList ul {}
+	.bagShopList ul li { width:100%; height:65px; margin-top:15px;
+	background:url(../images/cart/s_cart_list_bg.png) bottom repeat-x ;
+	background-size:120px 120px;}
+	.bagShopList ul li .bagSLimg { float:left; width:50px; height:50px;}
+	.bagSLimg img { width:100%; height:auto;}
+	
+	.bagShopList ul li h3 { float:left; width:115px; height:50px;
+	margin-left:10px; margin-top:2px; color:#4d9b99; text-align:left; font-weight:100;
+	line-height:inherit;}
+	
+	.texeC { display:table; width:100%; height:50px; *position:relative;}
+	.texeC span { display:table-cell; *top:50%; *position:absolute; vertical-align:middle;}
+	.texeC span .textCC { *position:relative; *top:-50%;}
+	
+	
+	.bagShopList ul li h4 { float:left; width:40px; height:20px;
+	margin-left:-10px; margin-top:18px;}
+	.bagShopListN { width:40px; height:20px; border:1px solid #cdcdcd; }
+		
+	.bagShopList ul li h5 { float:left; width:55px; height:20px;
+	margin-left:15px; margin-top:20px; text-align:right; padding-left:5px;}
+	
+	.bagShopList ul li h6 { float:right; width:20px; height:20px;
+	margin-left:-10px; margin-top:17px;}
+	.bagShopList ul li h6 a { display:block; width:20px; height:20px;
+	text-indent:-9999px; background:url(../images/cart/s_cart_list_close.png) top;
+	background-size:20px 40px;}
+	
+	.bagShopList ul li h6 a:hover { background:url(../images/cart/s_cart_list_close.png) bottom;
+	background-size:20px 40px;}
+
+/*	.bagShopListMoney { width:60%; height:auto; margin:0 auto; margin-top:15px; padding-bottom:40px;}
+	.bagShopListMoney h2 { float:left; width:50px; height:30px;
+	margin-right:0px; margin-top:10px; line-height:30px;}
+	.bagShopListMoney h1 { float:right; width:110px; height:40px;
+	margin-right:0px; margin-top:0px; line-height:40px;}
+	
+	.bagShopListMoney h1 .bagBigMoney { font-size:20px;}*/
+	
+	/*小計金額*/
+	.bagShopListMoney { width:60%; height:auto; margin:0 auto; margin-top:10px; padding-bottom:10px;}
+	.bagShopListMoney h2 { float:left; width:50px; height:30px;
+	margin-right:0px; margin-top:10px; line-height:30px;
+	font-size:11px;}
+	.bagShopListMoney h1 { float:right; width:110px; height:40px;
+	margin-right:0px; margin-top:0px; line-height:40px;}
+	.bagShopListMoney h1 .bagBigMoney {}
+	
+	/*運費金額*/
+	.bagShopListShipping { width:60%; height:auto; margin:0 auto; margin-top:0px; padding-bottom:0px;}
+	.bagShopListShipping h2 { float:left; width:50px; height:30px;
+	margin-right:0px; margin-top:0px; line-height:30px;
+	font-size:11px;}
+	.bagShopListShipping h1 { float:right; width:110px; height:40px;
+	margin-right:0px; margin-top:-10px; line-height:40px;}
+	.bagShopListShipping h1 .bagShippingMoney {}
+	
+	/*結算總金額*/
+	.bagShopListTotal { width:60%; height:auto; margin:0 auto; margin-top:10px; padding-bottom:20px;}
+	.bagShopListTotal h2 { float:left; width:50px; height:30px;
+	margin-right:0px; margin-top:0px; line-height:30px;
+	font-size:11px;}
+	.bagShopListTotal h1 { float:right; width:110px; height:40px;
+	margin-right:0px; margin-top:-5px; line-height:40px;}
+	.bagShopListTotal h1 .bagTotalMoney { font-size:26px;}
+	
+}

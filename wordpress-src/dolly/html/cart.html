@@ -1,0 +1,429 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+
+<title>GARPUE--Cart</title>
+
+<link href="css/gapure_style.css" rel="stylesheet" type="text/css" />
+<link href="css/gapure_style_mob.css" rel="stylesheet" type="text/css" />
+<link href="css/cart.css" rel="stylesheet" type="text/css" />
+
+
+<!--注意擺放的順序是有影響的要先載入JQ，再載入Load的function-->
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.10.3.min.js"></script>
+
+<!--ie8 Media Query-->
+<script type="text/javascript" src="https://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+
+<!--greensock-->
+<script type="text/javascript" src="js/TweenMax.min.js"></script>
+<script type="text/javascript" src="js/TimelineLite.min.js"></script>
+<script type="text/javascript" src="js/TimelineMax.min.js"></script>
+<script type="text/javascript" src="js/easing/EasePack.min.js"></script>
+<!---->
+<script type="text/javascript" src="js/gapure.js"></script>
+
+</head>
+
+<body>
+<!--全畫面刷黑-->
+<div class="overBody"></div>
+<div class="overLoginBody"></div>
+<!--登入會員-->
+<div class="memberLogin">
+	<h1>LOGIN WITH</h1>
+	<h3>E-MAIL</h3>
+    <input name="" type="text" class="inputType" />
+    <h3>PASSWORD</h3>
+    <input name="" type="text" class="inputType" />
+    <div class="memberLoginCF">
+    	<div class="memberLoginCheck">
+        <input name="" type="checkbox" value="" class="inputClear" id="checkbox0"/>
+        <label for="checkbox0"><span class="memberLoginCheckBox">
+        <span class="memberLoginCheckBoxOn"></span>
+        </span>記住我</label>
+        </div>
+
+		<div class="memberLoginForget"><a href="#">忘記註冊信箱</a></div>
+        <div class="clearDiv"></div>
+        </div>
+        <div class="memberLoginBtn"><a href="#">LOG IN</a></div>
+        <div class="memberLoginLine">or</div>
+        <div class="memberLoginBtnBox">
+            <div class="memberLoginFB"><a href="#">FB LOGIN</a></div>
+            <div class="memberLoginTW"><a href="#">FB LOGIN</a></div>
+        </div>
+
+        <div class="memberLoginClose"><a href="#">close</a></div>
+</div>
+
+
+<!--Head-->
+<div class="head">
+	<div class="logo"></div>
+    <!--主選單開關-->
+    <div class="burgLine"><a href="#">OpenMenu</a></div>
+    <!--會員、語系、購物車-->
+    <div class="menuRight">
+    	<ul>
+        	<li class="btn_member"><a href="#">member</a></li>
+            <li class="btn_shop"><a href="#">shopping</a></li>
+            <li class="btn_lang"><a href="#">中</a>
+            	<ul>
+                	<li><a href="#">簡</a></li>
+                    <li><a href="#">EN</a></li>
+                </ul>
+            </li>
+        </ul>
+        <div class="clearDiv"></div>
+    </div>
+    <!--主選單-->
+    <div class="menuLeft">
+        <ul>
+            <li class="btn_menuClose"><a href="#">Close</a></li>
+            <li class="btn_mainMenuW"><a href="#">ABOUT</a></li>
+            <li class="btn_mainMenuW"><a href="#">PRODUCTS</a></li>
+            <li class="btn_mainMenuW"><a href="#">FEATURES</a></li>
+            <li class="btn_mainMenuS"><a href="#">SHOP</a></li>
+            <!--<li class="btn_mainMenuW"><a href="#">CONTACT</a></li>-->
+        </ul>
+        <div class="clearDiv"></div>
+        <div class="lang">
+            <ul>
+                <li><a href="#">中</a></li>
+                <li><a href="#">簡</a></li>
+                <li><a href="#">EN</a></li>
+            </ul>
+            <div class="clearDiv"></div>
+        </div>
+    </div>
+</div>
+
+<div class="wrapper">
+    <!--購物車內頁-->
+    <div class="cartPageNow">
+    	<ul>
+        	<li><a href="#">Step1</a></li>
+        	<li><a href="#">Step2</a></li>
+            <li><a href="#">Step3</a></li>
+            <li><a href="#">Step4</a></li>
+            <li><a href="#">Step5</a></li>
+        </ul>
+    </div>
+    <div class="cartPage">
+        <div class="cartTitle">CHECK OUT</div>
+        <div class="cartBoxBottom"></div>
+        <!--表單步驟開始-->
+        <ul>
+        	<!--Step01-->
+            <li class="CPOver">
+                <a href="#"><div class="cartPtitle">ACCOUNT</div>
+                <div class="cartPpen"></div></a>
+                
+                <div class="cartStepA">
+                	<div class="cartOpenBorder"></div>
+                    <div class="cartSABox">
+                    	<div class="cartFormTitle cartSAPos1">First name<span class="typeRed">*</span></div>
+                        <div class="cartFormTitle cartSAPos2">Last name<span class="typeRed">*</span></div>
+                        <div class="cartSAPos1_in">
+                        	<input name="" type="text" class="cartFormBoxS" />
+                        </div>
+                        <div class="cartSAPos2_in">
+                        	<input name="" type="text" class="cartFormBoxS" />
+                        </div>
+                        <div class="cartFormTitle cartSAPos3">E-mail address<span class="typeRed">*</span></div>
+                        
+                        <div class="cartSAPos3_in">
+                        	<input name="" type="text" class="cartFormBoxL" />
+                        </div>
+                        <div class="cartFormTitle cartSAPos4">Password<span class="typeRed">*</span></div>
+                        <div class="cartFormTitle cartSAPos5">Confirm Password<span class="typeRed">*</span></div>
+                        <div class="cartSAPos4_in">
+                        	<input name="" type="text" class="cartFormBoxS" />
+                        </div>
+                        <div class="cartSAPos5_in">
+                        	<input name="" type="text" class="cartFormBoxS" />
+                        </div>
+                        <div class="cartSAfbBtn"><a href="#">Connect FB</a></div>
+                        <div class="cartSAtwitterBtn"><a href="#">Connect Twitter</a></div>
+                        <div class="cartSAorLine">or</div>
+                        <div class="clearDiv"></div>
+                        <div class="cartSALoginBtn"><a href="#">LOG IN</a></div>
+                        <div class="clearDiv"></div>
+                	</div>
+                </div>
+                
+                <div class="cartBoxBottom"></div>
+                <div class="cartCloseCheck">
+                	<div class="cartClose"><a href="#">Close</a></div>
+                    <div class="cartCheck"><a href="#">Check</a></div>
+                </div>
+            </li>
+            
+            
+            <!--Step02-->
+            <li>
+                <a href="#"><div class="cartPtitle">SHIPPING</div>
+                <div class="cartPpen"></div></a>
+                
+                <div class="cartStepB">
+                	<div class="cartOpenBorder"></div>
+                	<div class="cartSBBox">
+                    	<!--<div class="cartFormTitle cartSBCPos1">Address<span class="typeRed">*</span></div>-->
+                        <div class="cartSBCPos2_in">
+                        	<select name="" class="cartFormBoxSdrop">
+                        	<option>CHINA</option>
+                            <option>TAIWAN</option>
+                            <option>OTHER</option>
+                        	</select>
+                        </div>
+                        <div class="cartSBCPos3_in">
+                        	<input type="text" class="cartFormBoxS" value="ZIP CODE" />
+<!--                        	<select name="" class="cartFormBoxSdrop">
+                        	<option>PROVINCE</option>
+                        	</select>-->
+                        </div>
+                        <div class="cartSBCPos2_in">
+                            <select name="" class="cartFormBoxSdrop">
+                        	<option>CITY</option>
+                        	</select>
+                        </div>
+                        <div class="cartSBCPos3_in">
+                        	<select name="" class="cartFormBoxSdrop">
+                        	<option>DISTRICT</option>
+                        	</select>
+                        </div>
+
+                        <div class="cartSBCPos1_in">
+                        	<input name="" type="text" class="cartFormBoxL" value="ADDRESS" />
+                        </div>
+                        
+                        <div class="cartFormTitle cartSBCPos4">Mobile<span class="typeRed">*</span></div>
+                        <div class="cartFormTitle cartSBCPos5">Phone</div>
+                        <div class="cartSBCPos4_in">
+                        	<input name="" type="text" class="cartFormBoxS" />
+                        </div>
+                        <div class="cartSBCPos5_in">
+                        	<input name="" type="text" class="cartFormBoxS" />
+                        </div>
+                        <div class="clearDiv"></div>
+                    </div>
+                </div>
+                
+            	<div class="cartBoxBottom"></div>
+                <div class="cartCloseCheck">
+                	<div class="cartClose"><a href="#">Close</a></div>
+                    <div class="cartCheck"><a href="#">Check</a></div>
+                </div>
+            </li>
+            
+            
+            <!--Step03-->
+            <li>
+                <a href="#"><div class="cartPtitle">BILLING	</div>
+                <div class="cartPpen"></div></a>
+                
+                <div class="cartStepC">
+                	<div class="cartOpenBorder"></div>
+                	<div class="cartSCBox">
+                    	<div class="cartSCInfo"><a href="#">COPY FROM SHIPPING INFOMATION</a></div>
+                    	<!--<div class="cartFormTitle cartSBCPos1">Address<span class="typeRed">*</span></div>-->
+                        <div class="cartSBCPos2_in">
+                        	<select name="" class="cartFormBoxSdrop">
+                        	<option>CHINA</option>
+                            <option>TAIWAN</option>
+                            <option>OTHER</option>
+                        	</select>
+                        </div>
+                        <div class="cartSBCPos3_in">
+                        	<select name="" class="cartFormBoxSdrop">
+                        	<option>PROVINCE</option>
+                        	</select>
+                        </div>
+                        <div class="cartSBCPos2_in">
+                        	<!--<input type="text" class="cartFormBoxS" value="ZIP CODE" />-->
+                            <select name="" class="cartFormBoxSdrop">
+                        	<option>CITY</option>
+                        	</select>
+                        </div>
+                        <div class="cartSBCPos3_in">
+                        	<select name="" class="cartFormBoxSdrop">
+                        	<option>DISTRICT</option>
+                        	</select>
+                        </div>
+
+                        <div class="cartSBCPos1_in">
+                        	<input name="" type="text" class="cartFormBoxL" value="ADDRESS" />
+                        </div>
+                        
+                        <div class="cartFormTitle cartSBCPos4">Mobile<span class="typeRed">*</span></div>
+                        <div class="cartFormTitle cartSBCPos5">Phone</div>
+                        <div class="cartSBCPos4_in">
+                        	<input name="" type="text" class="cartFormBoxS" />
+                        </div>
+                        <div class="cartSBCPos5_in">
+                        	<input name="" type="text" class="cartFormBoxS" />
+                        </div>
+                        <div class="clearDiv"></div>
+                    </div>
+                </div>
+                
+            	<div class="cartBoxBottom"></div>
+                <div class="cartCloseCheck">
+                	<div class="cartClose"><a href="#">Close</a></div>
+                    <div class="cartCheck"><a href="#">Check</a></div>
+                </div>
+            </li>
+            
+            
+            <!--Step04-->
+            <li>
+                <a href="#"><div class="cartPtitle">PAYMENT</div>
+                <div class="cartPpen"></div></a>
+                
+                <div class="cartStepD">
+                	<div class="cartOpenBorder"></div>
+                    <div class="cartSDBox">
+                   		<ul>
+                        	<li>
+                            <input name="" type="radio" value="" class="inputClear" id="radioBox1" checked="checked"/>
+                            <label for="radioBox1"><span class="cartSDBoxCheckBox">
+                            <span class="cartSDBoxCheckBoxOn"></span>
+                            </span>CREDIT CARD</label>
+                            </li>
+                            
+                        	<li class="SDboxS">
+                            <input name="" type="radio" value="" class="inputClear" id="radioBox2" />
+                            <label for="radioBox2"><span class="cartSDBoxCheckBox">
+                            <span class="cartSDBoxCheckBoxOn"></span>
+                            </span>WEB ATM</label></li>
+                            
+                            <li>
+                            <input name="" type="radio" value="" class="inputClear" id="radioBox3" />
+                            <label for="radioBox3"><span class="cartSDBoxCheckBox">
+                            <span class="cartSDBoxCheckBoxOn"></span>
+                            </span>7-11 IBON</label></li>
+                        </ul>
+                        <div class="clearDiv"></div>
+                    </div>
+                </div>
+                
+            	<div class="cartBoxBottom"></div>
+                <div class="cartCloseCheck">
+                	<div class="cartClose"><a href="#">Close</a></div>
+                    <div class="cartCheck"><a href="#">Check</a></div>
+                </div>
+            </li>
+            
+            
+            <!--Step05-->
+            <li>
+                <a href="#"><div class="cartPtitle">SUMMARY</div>
+                <div class="cartPpen"></div></a>
+                <div class="cartStepE">
+                	<div class="cartOpenBorder"></div>
+                    
+                    <div class="cartSEBox">
+                    	<!--連絡基本資料-->
+                    	<div class="cartSEbasic">
+                        	<div class="cartSEbasicName">IAN MA</div>
+                            <div class="cartSEbasicMail">ian20.ma@gmail.com</div>
+                            <div class="cartSEbasicPhone">0920225120</div>
+                            <div class="clearDiv"></div>
+                        </div>
+                        <div class="cartSEbasicT">SHIPPING</div>
+                    	<div class="cartSEbasicAdd"> No.3, Aly. 5, Ln. 53, Sec. 5, Nanjing E. Rd., Songshan Dist., Taipei City 105, Taiwan (R.O.C.)</div>
+                        <div class="cartSEbasicLine"></div>
+                        <div class="cartSEbasicT">BILLING</div>
+                    	<div class="cartSEbasicAdd"> No.3, Aly. 5, Ln. 53, Sec. 5, Nanjing E. Rd., Songshan Dist., Taipei City 105, Taiwan (R.O.C.)</div>
+                        <!--訂單號碼-->
+                    </div>
+                    <div class="cartOpenBorderS5"></div>
+                	<!--<div class="cartSEorder">ORDER：A20140876001Q</div>-->
+                    <!--購買的清單-->
+                    <div class="cartSEList">
+                    	<ul>
+                        	<li>
+                            	<div class="cartLimg"><img src="images/cart/listdemo.jpg" width="100" height="100" /></div>
+                                <h3>
+                                	<div class="texeC">
+                                    <span><span class="textCC">
+                                    Department of Brewology Chemex <div class="blueText">size</div>
+                                    </span></span></div>
+                                </h3>
+                                <h4>999</h4>
+                                <h5>NT 500</h5>
+                                <h6><a href="#">Close</a></h6>
+                                <div class="clearDiv"></div>
+                            </li>
+                            <li>
+                            	<div class="cartLimg"><img src="images/cart/listdemo.jpg" width="100" height="100" /></div>
+                                <h3>
+                                    <div class="texeC">
+                                    <span><span class="textCC">
+                                    Department of Brewology Chemex Department of Brewology Chemex Department of Brewology Chemex
+                                    </span></span></div>
+                                </h3>
+                                <h4>999</h4>
+                                <h5>NT 500</h5>
+                                <h6><a href="#">Close</a></h6>
+                                <div class="clearDiv"></div>
+                            </li>
+                            <div class="clearDiv"></div>
+                        </ul>
+                        <div class="cartSEListMoney">
+                        	<h1>NT <span class="BigMoney">1000</span></h1>
+                            <h2>SUB</h2>
+                            <div class="clearDiv"></div>
+                        </div>
+                        
+                        <div class="cartSEListShipping">
+                        	<h1>NT <span class="ShippingMoney">1000</span></h1>
+                            <h2>FREIGHT</h2>
+                            <div class="clearDiv"></div>
+                        </div>
+                        
+                        <div class="cartOpenBorderS5"></div>
+                        
+                        <div class="cartSEListTotal">
+                        	<h1>NT <span class="TotalMoney">1000</span></h1>
+                            <h2>TOTAL</h2>
+                            <div class="clearDiv"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+            	<div class="cartBoxBottom"></div>
+                <div class="cartCloseCheck">
+                	<div class="cartClose"><a href="#">Close</a></div>
+                    <div class="cartCheck"><a href="#">Check</a></div>
+                </div>
+            </li>
+        
+        </ul>
+        <!--表單步驟結束-->
+	</div>
+</div>
+
+
+<div class="footer">
+    <!--BackTop-->
+    <div class="BackTop"></div>
+	<div class="footerMu">
+    <ul>
+    	<li><a href="#">CONTACT US</a></li>
+        <li><a href="#">PRIVACY POLICY</a></li>
+        <li class="sfooterMu"><a href="#">GUIDE</a></li>
+        <li class="sfooterMu"><a href="#">FAQ</a></li>
+    </ul>
+    </div>
+    <h1>COPYRIGHT (c) GAPURE . ALL RIGHTS RESERVED.2014</h1>
+    <div class="clearDiv"></div>
+</div>
+
+</body>
+</html>

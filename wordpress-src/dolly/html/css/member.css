@@ -1,0 +1,142 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*========================================================================================*/
+/*!!!!會員頁面!!!!*/
+/*========================================================================================*/
+
+.memberNow { width:960px; height:30px; margin:0 auto; margin-top:30px;}
+
+.memberNowChange { float:none; width:240px; height:30px; margin:0 auto;}
+
+.memberNowChangeA { float:left; width:110px; height:30px;}
+.memberNowChangeA a { display:block; width:110px; height:30px;
+font-size:15px; font-family:"Times New Roman", Times, serif,"微軟正黑體";
+text-align:center; line-height:30px; text-decoration:none; color:#000;}
+.memberNowChangeA a:hover { opacity:.3}
+
+
+.memberNowChangeB { float:right; width:110px; height:30px;}
+.memberNowChangeB a { display:block; width:110px; height:30px;
+font-size:15px; font-family:"Times New Roman", Times, serif,"微軟正黑體";
+text-align:center; line-height:30px; text-decoration:none; color:#000;}
+.memberNowChangeB a:hover { opacity:.3}
+
+.memberNowLogOut { float:right; width:110px; height:30px; margin-top:-30px;}
+.memberNowLogOut a { display:block; width:106px; height:26px; border:2px solid #707070;
+font-size:15px; font-family:Arial,"微軟正黑體"; text-decoration:none; color:#000;
+line-height:26px; letter-spacing:2px; text-align:center; font-weight:bold;}
+.memberNowLogOut a:hover { border:2px solid #000; background:#000; color:#fff;}
+	
+/*改變購物車頁CSS另一支設定的高度*/
+.reCartPageTop { margin-top:20px; margin-bottom:100px; }
+
+
+.memberPage { width:960px; height:auto; margin:0 auto; margin-top:20px; padding-bottom:50px; background:#f9f9f9; margin-bottom:150px;}
+.memberPageBottom { width:960px; height:10px;
+background:url(../images/cart/box_bottom.png);}
+
+
+
+.memberPageHistoryTitle { width:900px; height:80px; margin:0 auto;
+background:url(../images/member/m_title_bg.png);}
+
+.memberPageHistoryTitle ul { width:100%; height:40px; padding-top:20px; }
+.memberPageHistoryTitle ul li { float:left; width:200px; height:40px;
+font-size:13px; font-family:Arial,"微軟正黑體"; text-decoration:none; color:#000;
+line-height:40px; letter-spacing:1px; text-align:center;}
+.memberPageHistoryTitle ul li.HTbig { width:300px; height:40px;}
+.memberPageHistoryList ul li.HTLsmall { width:200px;}
+
+
+.memberPageHistoryList { width:900px; height:100px; margin:0 auto;
+background:url(../images/member/m_list_bg.png);}
+
+.memberPageHistoryList ul { width:100%; height:40px; padding-top:30px; }
+.memberPageHistoryList ul li { float:left; width:200px; height:40px;
+font-size:13px; font-family:Arial,"微軟正黑體"; text-decoration:none; color:#000;
+line-height:40px; letter-spacing:1px; text-align:center;
+font-weight:bold;}
+.memberPageHistoryList ul li.HTLbig { width:300px; height:40px;}
+
+ul li.typeBlue { color:#4d9b99;}
+ul li.typeOrange { color:#be5d4a;}
+
+
+
+
+
+@media screen and (max-width:480px){
+	/*========================================================================================*/
+	/*!!!!會員頁面!!!!*/
+	/*========================================================================================*/
+	
+	.memberNow { width:96%; height:30px; margin:0 auto; margin-top:5px;}
+	
+	.memberNowChange { float:left; width:180px; height:30px; margin:0 auto;}
+	
+	.memberNowChangeA { float:left; width:80px; height:30px;}
+	.memberNowChangeA a { display:block; width:80px; height:30px;
+	font-size:11px; font-family:"Times New Roman", Times, serif,"微軟正黑體";
+	text-align:center; line-height:30px; text-decoration:none; color:#000;}
+	.memberNowChangeA a:hover { opacity:.3}
+	
+	
+	.memberNowChangeB { float:right; width:80px; height:30px;}
+	.memberNowChangeB a { display:block; width:80px; height:30px;
+	font-size:11px; font-family:"Times New Roman", Times, serif,"微軟正黑體";
+	text-align:center; line-height:30px; text-decoration:none; color:#000;}
+	.memberNowChangeB a:hover { opacity:.3}
+	
+	.memberNowLogOut { float:right; width:75px; height:30px; margin-top:0px;}
+	.memberNowLogOut a { display:block; width:71px; height:26px; border:2px solid #707070;
+	font-size:11px; font-family:Arial,"微軟正黑體"; text-decoration:none; color:#000;
+	line-height:26px; letter-spacing:1px; text-align:center; font-weight:bold;}
+	.memberNowLogOut a:hover { border:2px solid #000; background:#000; color:#fff;}
+		
+	/*改變購物車頁CSS另一支設定的高度*/
+	.reCartPageTop { margin-top:20px; margin-bottom:0px; }
+	
+	
+	.memberPage { width:96%; height:auto; margin:0 auto; margin-top:10px; background:#f9f9f9; margin-bottom:0px;}
+	.memberPageBottom { width:96%; height:10px; margin:0 auto;
+	background:url(../images/cart/box_bottom.png) center;
+	background-size:100% 10px;}
+	
+	
+	
+	.memberPageHistoryTitle { width:94%; height:50px; margin:0 auto; background:#6FC;
+	background:url(../images/member/m_title_bg.png) bottom;}
+	
+	.memberPageHistoryTitle ul { width:100%; height:50px; padding-top:10px; }
+	.memberPageHistoryTitle ul li { float:left; width:22%; height:30px;
+	font-size:11px; font-family:Arial,"微軟正黑體"; text-decoration:none; color:#000;
+	line-height:30px; letter-spacing:1px; text-align:center;}
+	.memberPageHistoryTitle ul li.HTbig { width:34%; height:30px;}
+	
+	
+	.memberPageHistoryList { width:94%; height:70px; margin:0 auto;
+	background:url(../images/member/m_list_bg.png) bottom;}
+	
+	.memberPageHistoryList ul { width:100%; height:30px; padding-top:30px; }
+	.memberPageHistoryList ul li { float:left; width:22%; height:30px;
+	font-size:9px; font-family:Arial,"微軟正黑體"; text-decoration:none; color:#000;
+	line-height:30px; letter-spacing:0px; text-align:center;
+	font-weight:bold;}
+	.memberPageHistoryList ul li.HTLbig { width:34%; height:30px;}
+	.memberPageHistoryList ul li.HTLsmall { width:15%; margin-right:5%; margin-left:2%;
+	line-height:15px;}
+	
+	
+	ul li.typeBlue { color:#4d9b99;}
+	ul li.typeOrange { color:#be5d4a;}
+	
+	
+	
+	
+	
+	
+	
+	
+}
+

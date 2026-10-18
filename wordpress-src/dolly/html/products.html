@@ -1,0 +1,299 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+
+<title>GARPUE--Products</title>
+
+<link href="css/gapure_style.css" rel="stylesheet" type="text/css" />
+<link href="css/gapure_style_mob.css" rel="stylesheet" type="text/css" />
+<link href="css/newsin.css" rel="stylesheet" type="text/css" />
+<link href="css/products.css" rel="stylesheet" type="text/css" />
+<link href="css/news.css" rel="stylesheet" type="text/css" />
+
+
+<!--注意擺放的順序是有影響的要先載入JQ，再載入Load的function-->
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.10.3.min.js"></script>
+
+<!--ie8 Media Query-->
+<script type="text/javascript" src="https://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+
+<!--greensock-->
+<script type="text/javascript" src="js/TweenMax.min.js"></script>
+<script type="text/javascript" src="js/TimelineLite.min.js"></script>
+<script type="text/javascript" src="js/TimelineMax.min.js"></script>
+<script type="text/javascript" src="js/easing/EasePack.min.js"></script>
+<!--手機版輪播-->
+<script type="text/javascript" src="js/jquery-migrate.js"></script>
+<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="js/jquery.mobile.custom.min.js"></script>
+<!---->
+<script type="text/javascript" src="js/gapure.js"></script>
+<script type="text/javascript" src="js/carousel.js"></script>
+<!--<script type="text/javascript" src="js/orientation.js"></script>-->
+</head>
+
+<body>
+<div class="mob">
+	<div class="inner"><h1>請轉正</h1></div>
+</div>
+<!--全畫面刷黑-->
+<div class="overBody"></div>
+<div class="overLoginBody"></div>
+<!--登入會員-->
+<div class="memberLogin">
+	<h1>LOGIN WITH</h1>
+	<h3>E-MAIL</h3>
+    <input name="" type="text" class="inputType" />
+    <h3>PASSWORD</h3>
+    <input name="" type="text" class="inputType" />
+    <div class="memberLoginCF">
+    	<div class="memberLoginCheck">
+        <input name="" type="checkbox" value="" class="inputClear" id="checkbox0"/>
+        <label for="checkbox0"><span class="memberLoginCheckBox">
+        <span class="memberLoginCheckBoxOn"></span>
+        </span>記住我</label>
+        </div>
+
+		<div class="memberLoginForget"><a href="#">忘記註冊信箱</a></div>
+        <div class="clearDiv"></div>
+        </div>
+        <div class="memberLoginBtn"><a href="#">LOG IN</a></div>
+        <div class="memberLoginLine">or</div>
+        <div class="memberLoginBtnBox">
+            <div class="memberLoginFB"><a href="#">FB LOGIN</a></div>
+            <div class="memberLoginTW"><a href="#">FB LOGIN</a></div>
+        </div>
+
+        <div class="memberLoginClose"><a href="#">close</a></div>
+</div>
+
+
+<!--Head-->
+<div class="head">
+	<div class="logo"></div>
+    <!--主選單開關-->
+    <div class="burgLine"><a href="#">OpenMenu</a></div>
+    <!--會員、語系、購物車-->
+    <div class="menuRight">
+    	<ul>
+        	<li class="btn_member"><a href="#">member</a></li>
+            <li class="btn_shop"><a href="#">shopping</a></li>
+            <li class="btn_lang"><a href="#">中</a>
+            	<ul>
+                	<li><a href="#">簡</a></li>
+                    <li><a href="#">EN</a></li>
+                </ul>
+            </li>
+        </ul>
+        <div class="clearDiv"></div>
+    </div>
+    <!--主選單-->
+    <div class="menuLeft">
+        <ul>
+            <li class="btn_menuClose"><a href="#">Close</a></li>
+            <li class="btn_mainMenuW"><a href="#">ABOUT</a></li>
+            <li class="btn_mainMenuW"><a href="#">PRODUCTS</a></li>
+            <li class="btn_mainMenuW"><a href="#">FEATURES</a></li>
+            <li class="btn_mainMenuS"><a href="#">SHOP</a></li>
+            <!--<li class="btn_mainMenuW"><a href="#">CONTACT</a></li>-->
+        </ul>
+        <div class="clearDiv"></div>
+        <div class="lang">
+            <ul>
+                <li><a href="#">中</a></li>
+                <li><a href="#">簡</a></li>
+                <li><a href="#">EN</a></li>
+            </ul>
+            <div class="clearDiv"></div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!--產品內頁-->
+<div class="wrapper">
+
+    <div class="prodPage">
+    	<div class="prodBox">
+        	<div class="prodImgAll">
+            	<div class="prodImgAllBigImg">
+                	<ul>
+                    	<li><img src="images/prod/1.gif" /></li>
+                        <li><img src="images/prod/2.gif" /></li>
+						<li><img src="images/prod/3.gif" /></li>
+                        <li><img src="images/prod/4.gif" /></li>
+                        <li><img src="images/prod/5.gif" /></li>
+                        <li><img src="images/prod/6.gif" /></li>
+                    </ul>
+                </div>
+                <ul>
+                	<li><a href="#"><img src="images/prod/prod_demo.jpg" width="450" height="450" /></a></li>
+                    <li><a href="#"><img src="images/prod/prod_demo.jpg" width="450" height="450" /></a></li>
+                    <li><a href="#"><img src="images/prod/prod_demo.jpg" width="450" height="450" /></a></li>
+                    <li><a href="#"><img src="images/prod/prod_demo.jpg" width="450" height="450" /></a></li>
+                    <li><a href="#"><img src="images/prod/prod_demo.jpg" width="450" height="450" /></a></li>
+                    <li><a href="#"><img src="images/prod/prod_demo.jpg" width="450" height="450" /></a></li>
+                </ul>
+       		</div>
+            <div class="prodForm">
+            	<div class="prodFormTitle">
+                	<div class="prodFormTitleA">ENTERNAL SUNSINE</div>
+                    <div class="prodFormTitleB">CUSTOMIZED COFFEE</div>
+                </div>
+            	<div class="prodFormLogo"><img src="images/prod/ming_logo.png" width="80" height="80" /></div>
+                <div class="prodFormMoney">NT$<span class="prodFormMoneyBig">1,980</span></div>
+                
+                <div class="prodFormSelect">
+                	<div class="prodFormSelectL">
+                    	<div class="prodFormSelectTitle">風 味</div>
+                        
+                        <div class="prodFormSelectShow">
+                            <span class="prodFormSelectShowT">花 香</span>
+                            <ul>
+                                <li class="SelectOver">1</li><li>2</li>
+                                <li>3</li><li>4</li>
+                                <li>5</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="prodFormSelectShow">
+                            <span class="prodFormSelectShowT">柑 橋</span>
+                            <ul>
+                                <li class="SelectOver">1</li><li>2</li>
+                                <li>3</li><li>4</li>
+                                <li>5</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="prodFormSelectShow">
+                            <span class="prodFormSelectShowT">蜂 蜜</span>
+                            <ul>
+                                <li class="SelectOver">1</li><li>2</li>
+                                <li>3</li><li>4</li>
+                                <li>5</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="prodFormSelectShow">
+                            <span class="prodFormSelectShowT">堅 果</span>
+                            <ul>
+                                <li class="SelectOver">1</li><li>2</li>
+                                <li>3</li><li>4</li>
+                                <li>5</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="prodFormSelectShow">
+                            <span class="prodFormSelectShowT">無 糖</span>
+                            <ul>
+                                <li class="SelectOver">1</li><li>2</li>
+                                <li>3</li><li>4</li>
+                                <li>5</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="prodFormSelectShow">
+                            <span class="prodFormSelectShowT">巧克力</span>
+                            <ul>
+                                <li class="SelectOver">1</li><li>2</li>
+                                <li>3</li><li>4</li>
+                                <li>5</li>
+                            </ul>
+                        </div>
+                        
+                    </div>
+                    <div class="prodFormSelectC"></div>
+                    <div class="prodFormSelectR">
+                    	<div class="prodFormSelectTitle">自 訂</div>
+                        <div class="prodFormSelectUL">
+                        	<ul>
+                            	<li><a href="#">更多花果香</a></li>
+                                <li class="SelectULOver"><a href="#">預設風味</a></li>
+                                <li class="nobgline"><a href="#">更多蜂蜜香</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="prodFormInfo">
+                    <span class="prodFormInfoT">進口產地：</span>巴西(台灣在地手工烘焙)<br/>
+                    <span class="prodFormInfoT">商品尺寸：</span>約長190X寬90X高55mm<br/>
+                    <span class="prodFormInfoT">商品重量：</span>150 克 ± 5% (包)<br/>
+                    <span class="prodFormInfoT">商品成份：</span>100%咖啡豆<br/>
+                    <span class="prodFormInfoT">保存期限：</span>保存期限2年(有效日期如包裝上標示)<br/>
+                    <span class="prodFormInfoT">保存方法：</span>拆封後請儘速飲用，避免陽光直射及高溫潮濕
+                </div>
+                <div class="prodFormBtn"><a href="#">ADD TO CART</a></div>
+       		</div>
+            
+            <div class="clearDiv"></div>
+            <div class="prodBottomLine"></div>
+            <div class="prodShare">
+            	<ul>
+                	<li><a href="#"><img src="images/prod/share_fb.png" width="100" height="100" /></a></li>
+                    <li><a href="#"><img src="images/prod/share_tiwtter.png" width="100" height="100" /></a></li>
+                    <li><a href="#"><img src="images/prod/share_sin.png" width="100" height="100" /></a></li>
+                </ul>
+            </div>
+            
+        </div>
+        <div class="newsAPage">
+            <div class="newsAimg">
+            <img src="images/news/demo_img_page.jpg" width="860" height="550" /></div>
+            <div class="newsAText">
+            台灣咖啡協會自2004年起開始舉辦世界盃咖啡賽事，主辦的世界咖啡大賽有 WBC(咖啡大師),Latte Art(拉花比賽),Brewing Cup(手沖比賽),Coffee Roasting(烘豆師比賽),Cup Tasters(杯測比賽)， 產生的台灣冠軍代表國家到世界參賽的各項咖啡比賽，多年來大家耳熟能詳台灣咖啡界的名人：林東源，侯國全、曹嘉銘，張仲侖、簡嘉程，李雅婷、莊宏彰皆是經由台灣咖啡協會比賽脫穎而出。<br/><br/>
+    
+    咖啡是僅次於石油的交易商品，近年來咖啡產業在台灣蓬勃發展，我們與世界咖啡的接軌更是緊密，在台灣咖啡協會舉辦的賽制中，我們有世界級的各類評審、世界比賽同等級的咖啡器具與設備、有來自各咖啡生產的精品咖啡豆、有出錢出力的各種贊助，讓選手有競技的舞台，提升台灣整體的咖啡素質，讓台灣的咖啡界合作共創佳績。
+    台灣咖啡協會10 年有成！
+            </div>
+        </div>
+        <div class="prodBottomBox"></div>
+    </div>
+    
+    <div class="PageBottomShadow"></div>
+    
+    
+    <!--其它相關-->
+    <div class="newsPageReladte">RELATED</div>
+    <div class="newsPageReladteList">
+        <ul>
+            <li><a href="#" class="newsPageRelatedBr"><img src="images/news/demo_img.jpg" width="560" height="560" /></a>
+            <div class="nlistTitle fontBold">台灣咖啡協會邀請<br/>台灣咖啡界世界發光記者會</div>
+            </li>
+            
+            <li class="newsPageListNone"><a href="#" class="newsPageRelatedBr"><img src="images/news/demo_img.jpg" width="560" height="560" /></a>
+            <div class="nlistTitle fontBold">台灣咖啡協會邀請<br/>台灣咖啡界世界發光記者會</div>
+            </li>
+            
+            <li class="newsPageListNone"><a href="#" class="newsPageRelatedBr"><img src="images/news/demo_img.jpg" width="560" height="560" /></a>
+            <div class="nlistTitle fontBold">台灣咖啡協會邀請<br/>台灣咖啡界世界發光記者會</div>
+            </li>
+        </ul>
+    	<div class="clearDiv"></div>
+	</div>
+</div>
+
+
+
+
+<div class="footer">
+    <!--BackTop-->
+    <div class="BackTop"></div>
+	<div class="footerMu">
+    <ul>
+    	<li><a href="#">CONTACT US</a></li>
+        <li><a href="#">PRIVACY POLICY</a></li>
+        <li class="sfooterMu"><a href="#">GUIDE</a></li>
+        <li class="sfooterMu"><a href="#">FAQ</a></li>
+    </ul>
+    </div>
+    <h1>COPYRIGHT (c) GAPURE . ALL RIGHTS RESERVED.2014</h1>
+    <div class="clearDiv"></div>
+</div>
+
+</body>
+</html>

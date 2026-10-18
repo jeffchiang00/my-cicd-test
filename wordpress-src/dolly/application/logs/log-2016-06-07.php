@@ -1,0 +1,21 @@
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed'); ?>
+
+ERROR - 2016-06-07 15:39:33 --> 404 Page Not Found --> assets/css/font-awesome.min.css
+ERROR - 2016-06-07 15:39:44 --> 404 Page Not Found --> assets/css/font-awesome.min.css
+ERROR - 2016-06-07 15:42:27 --> 404 Page Not Found --> assets/css/font-awesome.min.css
+ERROR - 2016-06-07 15:42:30 --> 404 Page Not Found --> assets/css/font-awesome.min.css
+ERROR - 2016-06-07 15:43:23 --> 404 Page Not Found --> assets/css/font-awesome.min.css
+ERROR - 2016-06-07 15:44:44 --> 404 Page Not Found --> assets/css/font-awesome.min.css
+ERROR - 2016-06-07 15:47:41 --> 404 Page Not Found --> assets/css/font-awesome.min.css
+ERROR - 2016-06-07 15:47:45 --> 404 Page Not Found --> assets/css/font-awesome.min.css
+ERROR - 2016-06-07 15:47:54 --> 404 Page Not Found --> assets/css/font-awesome.min.css
+ERROR - 2016-06-07 15:53:53 --> 404 Page Not Found --> assets/css/font-awesome.min.css
+ERROR - 2016-06-07 16:00:15 --> 404 Page Not Found --> assets/css/font-awesome.min.css
+ERROR - 2016-06-07 16:03:02 --> 404 Page Not Found --> assets/css/font-awesome.min.css
+ERROR - 2016-06-07 16:03:49 --> 404 Page Not Found --> assets/css/font-awesome.min.css
+ERROR - 2016-06-07 16:59:25 --> 404 Page Not Found --> assets/css/font-awesome.min.css
+ERROR - 2016-06-07 16:59:28 --> 404 Page Not Found --> assets/css/font-awesome.min.css
+ERROR - 2016-06-07 17:00:16 --> 404 Page Not Found --> assets/css/font-awesome.min.css
+ERROR - 2016-06-07 17:00:49 --> 404 Page Not Found --> assets/css/font-awesome.min.css
+ERROR - 2016-06-07 17:01:23 --> 404 Page Not Found --> assets/css/font-awesome.min.css
+ERROR - 2016-06-07 17:01:33 --> 404 Page Not Found --> assets/css/font-awesome.min.css

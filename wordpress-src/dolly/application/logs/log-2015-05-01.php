@@ -1,0 +1,22 @@
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed'); ?>
+
+ERROR - 2015-05-01 12:59:11 --> 404 Page Not Found --> assets/css/bootstrap/js/bootstrap.min.js
+ERROR - 2015-05-01 12:59:22 --> 404 Page Not Found --> assets/css/bootstrap/js/bootstrap.min.js
+ERROR - 2015-05-01 12:59:36 --> 404 Page Not Found --> assets/css/bootstrap/js/bootstrap.min.js
+ERROR - 2015-05-01 13:18:59 --> 404 Page Not Found --> assets/css/bootstrap/js/bootstrap.min.js
+ERROR - 2015-05-01 13:22:58 --> 404 Page Not Found --> assets/css/bootstrap/js/bootstrap.min.js
+ERROR - 2015-05-01 13:25:48 --> 404 Page Not Found --> assets/css/bootstrap/js/bootstrap.min.js
+ERROR - 2015-05-01 13:27:04 --> 404 Page Not Found --> assets/css/bootstrap/js/bootstrap.min.js
+ERROR - 2015-05-01 13:39:44 --> 404 Page Not Found --> assets/css/bootstrap/js/bootstrap.min.js
+ERROR - 2015-05-01 13:41:25 --> 404 Page Not Found --> assets/css/bootstrap/js/bootstrap.min.js
+ERROR - 2015-05-01 13:41:48 --> 404 Page Not Found --> assets/css/bootstrap/js/bootstrap.min.js
+ERROR - 2015-05-01 13:44:00 --> 404 Page Not Found --> assets/css/bootstrap/js/bootstrap.min.js
+ERROR - 2015-05-01 13:45:46 --> 404 Page Not Found --> assets/css/bootstrap/js/bootstrap.min.js
+ERROR - 2015-05-01 13:46:01 --> 404 Page Not Found --> assets/css/bootstrap/js/bootstrap.min.js
+ERROR - 2015-05-01 13:48:29 --> 404 Page Not Found --> assets/css/bootstrap/js/bootstrap.min.js
+ERROR - 2015-05-01 13:49:05 --> 404 Page Not Found --> assets/css/bootstrap/js/bootstrap.min.js
+ERROR - 2015-05-01 13:50:49 --> 404 Page Not Found --> assets/css/bootstrap/js/bootstrap.min.js
+ERROR - 2015-05-01 13:52:02 --> 404 Page Not Found --> assets/css/bootstrap/js/bootstrap.min.js
+ERROR - 2015-05-01 13:54:03 --> 404 Page Not Found --> assets/css/bootstrap/js/bootstrap.min.js
+ERROR - 2015-05-01 13:54:43 --> 404 Page Not Found --> assets/css/bootstrap/js/bootstrap.min.js
+ERROR - 2015-05-01 13:55:04 --> 404 Page Not Found --> assets/css/bootstrap/js/bootstrap.min.js
