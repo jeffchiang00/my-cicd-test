@@ -1,4 +1,5 @@
-name: 雙系統本地虛擬機推演流水線 (金鑰通關版)
+# 1. 強制複寫為改名版、100% 繞過舊快取的 deploy.yml
+name: 雙系統本地虛擬機推演流水線 (全面換新通關版)
 
 on:
   push:
@@ -13,14 +14,14 @@ jobs:
       - name: 1. 檢出 Git 最新程式碼
         uses: actions/checkout@v3
 
-      # === 【WordPress PHP 區】改用金鑰外送檔案 ===
+      # === 【WordPress PHP 區】改用全新變數金鑰外送檔案 ===
       - name: 2. 點對點熱同步 WordPress PHP 網頁檔案
         uses: appleboy/scp-action@master
         with:
-          host: ${{ secrets.SERVER_HOST }}
+          host: ${{ secrets.MY_NEW_HOST }}
           username: ${{ secrets.SERVER_USER }}
-          key: ${{ secrets.SERVER_KEY }}
-          port: ${{ secrets.SERVER_PORT }}
+          key: ${{ secrets.MY_NEW_KEY }}
+          port: ${{ secrets.MY_NEW_PORT }}
           source: "wordpress-src/*"
           target: "/var/lib/docker/volumes/my-project_wp_data/_data/wp-content/"
           strip_components: 1
@@ -29,14 +30,19 @@ jobs:
       - name: 3. SSH 登入虛擬機，執行 Nginx 路由重載
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.SERVER_HOST }}
+          host: ${{ secrets.MY_NEW_HOST }}
           username: ${{ secrets.SERVER_USER }}
-          key: ${{ secrets.SERVER_KEY }}
-          port: ${{ secrets.SERVER_PORT }}
+          key: ${{ secrets.MY_NEW_KEY }}
+          port: ${{ secrets.MY_NEW_PORT }}
           script: |
             echo "🔄 偵測到網頁設計師更新 PHP 檔案，執行 Nginx 熱重載..."
-            # 💡 修正：移除反斜線，確保遠端 Ubuntu 的 Bash 能正常執行判斷式
             if [ $(docker ps -q -f name=nginx_proxy) ]; then
                 docker compose exec -T nginx nginx -s reload
             fi
             echo "🎉 [Success] 本地虛擬機自動化網頁部署成功！"
+
+# 2. 推送這份全新名字綁定的檔案至 GitHub
+#git add .github/workflows/deploy.yml
+#git commit -m "chore: 變數全面改名，徹底擊碎舊 IP 快取"
+#git push origin main
+
