@@ -1,4 +1,4 @@
-name: 雙系統本地虛擬機推演流水線 (完全動態變數版)
+name: 雙系統本地虛擬機推演流水線 (地表最強自建 Runner 版)
 
 on:
   push:
@@ -7,35 +7,28 @@ on:
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest
+    # ⭕ 關鍵核心：告訴 GitHub 不要用雲端伺服器，直接派單給我這台 Ubuntu 虛擬機
+    runs-on: self-hosted
 
     steps:
       - name: 1. 檢出 Git 最新程式碼
         uses: actions/checkout@v3
 
-      # === 【WordPress PHP 區】動態變數外送檔案 ===
-      - name: 2. 點對點熱同步 WordPress PHP 網頁檔案
-        uses: appleboy/scp-action@master
-        with:
-          host: ${{ secrets.MY_NEW_HOST }}
-          username: ${{ secrets.SERVER_USER }}
-          key: ${{ secrets.MY_NEW_KEY }}
-          port: ${{ secrets.MY_NEW_PORT }}
-          source: "wordpress-src/*"
-          target: "/var/lib/docker/volumes/my-project_wp_data/_data/wp-content/"
-          strip_components: 1
+      # === 【WordPress PHP 區】本機直接熱同步，免 IP、免密碼、免穿透 ===
+      - name: 2. 本地直接熱同步 WordPress PHP 網頁檔案
+        run: |
+          echo "🚚 Runner 就在虛擬機本機，直接利用 cp 指令將檔案外送至 Docker 磁碟卷..."
+          # 建立目標資料夾（如果不存在的話）
+          sudo mkdir -p /var/lib/docker/volumes/my-project_wp_data/_data/wp-content/
+          # 將程式碼直接複製過去
+          sudo cp -r wordpress-src/* /var/lib/docker/volumes/my-project_wp_data/_data/wp-content/
 
-      # === 遠端虛擬機執行區 ===
-      - name: 3. SSH 登入虛擬機，執行 Nginx 路由重載
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.MY_NEW_HOST }}
-          username: ${{ secrets.SERVER_USER }}
-          key: ${{ secrets.MY_NEW_KEY }}
-          port: ${{ secrets.MY_NEW_PORT }}
-          script: |
-            echo "🔄 偵測到網頁設計師更新 PHP 檔案，執行 Nginx 熱重載..."
-            if [ $(docker ps -q -f name=nginx_proxy) ]; then
-                docker compose exec -T nginx nginx -s reload
-            fi
-            echo "🎉 [Success] 本地虛擬機自動化網頁部署成功！"
+      # === 本地執行區 ===
+      - name: 3. 執行本機 Nginx 路由重載
+        run: |
+          echo "🔄 偵測到網頁設計師更新 PHP 檔案，執行 Nginx 熱重載..."
+          # 確保伺服器存在 nginx 容器才執行重載
+          if [ $(docker ps -q -f name=nginx_proxy) ]; then
+              docker compose exec -T nginx nginx -s reload
+          fi
+          echo "🎉 [Success] 虛擬機內部自體自動化網頁部署成功！"
