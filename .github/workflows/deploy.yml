@@ -7,28 +7,31 @@ on:
 
 jobs:
   build-and-deploy:
-    # ⭕ 關鍵核心：告訴 GitHub 不要用雲端伺服器，直接派單給我這台 Ubuntu 虛擬機
     runs-on: self-hosted
 
     steps:
       - name: 1. 檢出 Git 最新程式碼
         uses: actions/checkout@v3
 
-      # === 【WordPress PHP 區】本機直接熱同步，免 IP、免密碼、免穿透 ===
+      # === 【WordPress PHP 區】本機直接熱同步 ===
       - name: 2. 本地直接熱同步 WordPress PHP 網頁檔案
         run: |
           echo "🚚 Runner 就在虛擬機本機，直接利用 cp 指令將檔案外送至 Docker 磁碟卷..."
-          # 建立目標資料夾（如果不存在的話）
           sudo mkdir -p /var/lib/docker/volumes/my-project_wp_data/_data/wp-content/
-          # 將程式碼直接複製過去
           sudo cp -r wordpress-src/* /var/lib/docker/volumes/my-project_wp_data/_data/wp-content/
 
       # === 本地執行區 ===
       - name: 3. 執行本機 Nginx 路由重載
         run: |
           echo "🔄 偵測到網頁設計師更新 PHP 檔案，執行 Nginx 熱重載..."
+          
+          # 💡 終極修正：先 cd 切換到您在 Ubuntu 上原本存放 docker-compose.yml 的真實資料夾路徑下！
+          # （請將下方 /var/lib/docker 換成您原本手動輸入 docker compose up 時的那個資料夾路徑，例如 /root/my-wp-project）
+          cd /root/my-project
+          
           # 確保伺服器存在 nginx 容器才執行重載
           if [ $(docker ps -q -f name=nginx_proxy) ]; then
-              docker compose exec -T nginx nginx -s reload
+              # 加上 -f 指定檔案或是確保在同目錄下執行
+              sudo docker compose exec -T nginx nginx -s reload
           fi
           echo "🎉 [Success] 虛擬機內部自體自動化網頁部署成功！"
