@@ -35,7 +35,8 @@ jobs:
           port: ${{ secrets.SERVER_PORT }}
           script: |
             echo "🔄 偵測到網頁設計師更新 PHP 檔案，執行 Nginx 熱重載..."
-            if [ \$(docker ps -q -f name=nginx_proxy) ]; then
+            # 💡 修正：移除反斜線，確保遠端 Ubuntu 的 Bash 能正常執行判斷式
+            if [ $(docker ps -q -f name=nginx_proxy) ]; then
                 docker compose exec -T nginx nginx -s reload
             fi
             echo "🎉 [Success] 本地虛擬機自動化網頁部署成功！"
