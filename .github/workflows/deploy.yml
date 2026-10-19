@@ -13,25 +13,32 @@ jobs:
       - name: 1. 檢出 Git 最新程式碼
         uses: actions/checkout@v3
 
-      # === 【WordPress PHP 區】本機直接熱同步 ===
-      - name: 2. 本地直接熱同步 WordPress PHP 網頁檔案
+      # === 【自動化部署區】雙專案同時點對點本機熱同步 ===
+      - name: 2. 本地直接熱同步 WordPress 與 獨立 PHP 專案
         run: |
-          echo "🚚 Runner 就在虛擬機本機，直接利用 cp 指令將檔案外送至 Docker 磁碟卷..."
-          sudo mkdir -p /var/lib/docker/volumes/my-project_wp_data/_data/wp-content/
-          sudo cp -r wordpress-src/* /var/lib/docker/volumes/my-project_wp_data/_data/wp-content/
+          echo "🚚 1. 清理遠端舊檔案，防止層級殘留干擾..."
+          sudo rm -rf /var/lib/docker/volumes/my-project_wp_data/_data/dolly
+          sudo rm -rf /var/lib/docker/volumes/my-project_wp_data/_data/wp-content/themes/dolly
+          
+          echo "🚚 2. 同步 WordPress 主站核心檔案..."
+          sudo mkdir -p /var/lib/docker/volumes/my-project_wp_data/_data/
+          sudo cp -r wordpress-src/* /var/lib/docker/volumes/my-project_wp_data/_data/
+          
+          echo "🚚 3. 同步獨立 CodeIgniter 專案 dolly..."
+          if [ -d "dolly" ]; then
+              # 將整個純淨的 dolly 資料夾完整複製到 Nginx 的對外網頁根目錄
+              sudo cp -r dolly /var/lib/docker/volumes/my-project_wp_data/_data/
+          fi
+          
+          echo "🚚 4. 強制刷新虛擬機 Docker 掛載目錄之網頁伺服器最高讀寫權限..."
+          sudo chown -R 33:33 /var/lib/docker/volumes/my-project_wp_data/_data/
 
       # === 本地執行區 ===
       - name: 3. 執行本機 Nginx 路由重載
         run: |
-          echo "🔄 偵測到網頁設計師更新 PHP 檔案，執行 Nginx 熱重載..."
-          
-          # 💡 終極修正：先 cd 切換到您在 Ubuntu 上原本存放 docker-compose.yml 的真實資料夾路徑下！
-          # （請將下方 /var/lib/docker 換成您原本手動輸入 docker compose up 時的那個資料夾路徑，例如 /root/my-wp-project）
+          echo "🔄 執行 Nginx 熱重載..."
           cd /root/my-project
-          
-          # 確保伺服器存在 nginx 容器才執行重載
           if [ $(docker ps -q -f name=nginx_proxy) ]; then
-              # 加上 -f 指定檔案或是確保在同目錄下執行
               sudo docker compose exec -T nginx nginx -s reload
           fi
-          echo "🎉 [Success] 虛擬機內部自體自動化網頁部署成功！"
+          echo "🎉 [Success] 雙專案全自動化自體熱部署完成！"
