@@ -48,6 +48,30 @@
 $active_group = 'default';
 $active_record = TRUE;
 
+$db['default'] = array(
+	'dsn'	=> '',
+	'hostname' => getenv('WORDPRESS_DB_HOST') ? getenv('WORDPRESS_DB_HOST') : 'db',
+	'username' => getenv('WORDPRESS_DB_USER') ? getenv('WORDPRESS_DB_USER') : 'wp_user',
+	'password' => getenv('WORDPRESS_DB_PASSWORD') ? getenv('WORDPRESS_DB_PASSWORD') : 'db_password',
+	'database' => 'gapure_dolly', // 👈 保持讀取這包專案在日誌中指定的 gapure_dolly 資料庫
+	'dbdriver' => 'mysqli',
+	'dbprefix' => '',
+	'pconnect' => FALSE,
+	'db_debug' => (ENVIRONMENT !== 'production'),
+	'cache_on' => FALSE,
+	'cachedir' => '',
+	'char_set' => 'utf8',
+	'dbcollat' => 'utf8_general_ci',
+	'swap_pre' => '',
+	'encrypt' => FALSE,
+	'compress' => FALSE,
+	'stricton' => FALSE,
+	'failover' => array(),
+	'save_queries' => TRUE
+);
+
+
+/*
 $db['default']['hostname'] = 'db';
 $db['default']['username'] = 'wp_user';//dolly_ci
 $db['default']['password'] = 'wp_password';//19880810
@@ -63,7 +87,7 @@ $db['default']['dbcollat'] = 'utf8_general_ci';
 $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
-
+*/
 
 /* End of file database.php */
 /* Location: ./application/config/database.php */
