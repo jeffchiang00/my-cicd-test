@@ -1,0 +1,244 @@
+config.js中自訂工具列的參數
+
+['Source','-','Templates','-','Cut','Copy','Paste'],
+['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],
+['Link','Unlink','Anchor'],
+['Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak'],
+'/', ['Bold','Italic','Underline','Strike','-','Subscript','Superscript'],
+['NumberedList','BulletedList','-','Outdent','Indent','Blockquote'],
+['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
+['Format','FontSize','-','TextColor','BGColor']
+
+工具列參數列表：
+'Source'：原始碼
+'Save'：儲存
+'NewPage'：開新檔案
+'Preview'：預覽
+'Templates'：樣版
+
+'Cut'：剪下
+'Copy'：複製
+'Paste'：貼上
+'PasteText'：貼為文字格式
+'PasteFromWord'：從word 貼上
+'Print'：列印
+'SpellChecker'：拼字檢查
+'Scayt'：即時拼寫檢查
+
+'Undo'：上一步
+'Redo'：重作
+'Find'：尋找
+'Replace'：取代
+'SelectAll'：全選
+'RemoveFormat'：清除格式
+
+'Form'：表單
+'Checkbox'：核取方塊
+'Radio'：單選按鈕
+'TextField'：文字方塊
+'Textarea'：文字區域
+'Select'：選單
+'Button'：按鈕
+'ImageButton'：影像按鈕
+'HiddenField'：隱藏欄位
+
+'Bold'：粗體
+'Italic'：斜體
+'Underline'：底線
+'Strike'：刪除線
+'Subscript'：下標
+'Superscript'：上標
+'NumberedList'：編號清單
+'BulletedList'：項目清單
+'Outdent'：減少縮排
+'Indent'：增加縮排
+'Blockquote'：引用文字
+
+'JustifyLeft'：靠左對齊
+'JustifyCenter'：置中
+'JustifyRight'：靠右對齊
+'JustifyBlock'：左右對齊
+
+'Link'：超連結
+'Unlink'：移除超連結
+'Anchor'：錨點
+
+'Image'：圖片影像
+'Flash'：Flash
+'Table'：表格
+'HorizontalRule'：水平線
+'Smiley'：表情符號
+'SpecialChar'：特殊符號
+'PageBreak'：分頁符號
+
+'Styles'：樣式
+'Format'：格式
+'Font'：字體
+'FontSize'：大小
+
+'TextColor'：文字顏色
+'BGColor'：背景顏色
+
+'Maximize'：最大化
+'ShowBlocks'：顯示區塊
+'About'：關於CKEditor
+附註-以下是一些常用的配置參數：
+// 介面語言，默認為 'en'
+    config.language = 'zh-cn';
+// 設置寬高
+    config.width = 400;
+    config.height = 400;
+// 編輯器樣式，有三種：'kama'（默認）、'office2003'、'v2'
+    config.skin = 'v2';
+// 背景顏色
+    config.uiColor = '#FFF';
+// 工具欄（基礎'Basic'、全能'Full'、自定義）plugins/toolbar/plugin.js
+    config.toolbar = 'Basic';
+    config.toolbar = 'Full';
+    這將配合：
+    config.toolbar_Full = [
+       ['Source','-','Save','NewPage','Preview','-','Templates'],
+       ['Cut','Copy','Paste','PasteText','PasteFromWord','-','Print', 'SpellChecker', 'Scayt'],
+       ['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],
+       ['Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField'],
+       '/',
+       ['Bold','Italic','Underline','Strike','-','Subscript','Superscript'],
+        ['NumberedList','BulletedList','-','Outdent','Indent','Blockquote'],
+        ['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
+        ['Link','Unlink','Anchor'],
+       ['Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak'],
+       '/',
+        ['Styles','Format','Font','FontSize'],
+        ['TextColor','BGColor']
+    ];
+    //工具欄是否可以被收縮
+    config.toolbarCanCollapse = true;
+    //工具欄的位置
+    config.toolbarLocation = 'top';//可選：bottom
+    //工具欄默認是否展開
+    config.toolbarStartupExpanded = true;
+// 取消 “拖拽以改變尺寸”功能 plugins/resize/plugin.js
+    config.resize_enabled = false;
+    //改變大小的最大高度
+    config.resize_maxHeight = 3000;
+    //改變大小的最大寬度
+    config.resize_maxWidth = 3000;
+    //改變大小的最小高度
+    config.resize_minHeight = 250;
+    //改變大小的最小寬度
+    config.resize_minWidth = 750;
+// 當提交包含有此編輯器的表單時，是否自動更新元素內的資料
+    config.autoUpdateElement = true;
+// 設置是使用絕對目錄還是相對目錄，為空為相對目錄
+    config.baseHref = ''
+    // 編輯器的z-index值
+    config.baseFloatZIndex = 10000;
+//設置快捷鍵
+    config.keystrokes = [
+       [ CKEDITOR.ALT + 121 /*F10*/, 'toolbarFocus' ], //獲取焦點
+        [ CKEDITOR.ALT + 122 /*F11*/, 'elementsPathFocus' ], //元素焦點
+       [ CKEDITOR.SHIFT + 121 /*F10*/, 'contextMenu' ], //文本功能表
+       [ CKEDITOR.CTRL + 90 /*Z*/, 'undo' ], //撤銷
+        [ CKEDITOR.CTRL + 89 /*Y*/, 'redo' ], //重做
+        [ CKEDITOR.CTRL + CKEDITOR.SHIFT + 90 /*Z*/, 'redo' ], //
+        [ CKEDITOR.CTRL + 76 /*L*/, 'link' ], //鏈結
+        [ CKEDITOR.CTRL + 66 /*B*/, 'bold' ], //粗體
+        [ CKEDITOR.CTRL + 73 /*I*/, 'italic' ], //斜體
+        [ CKEDITOR.CTRL + 85 /*U*/, 'underline' ], //下劃線
+        [ CKEDITOR.ALT + 109 /*-*/, 'toolbarCollapse' ]
+    ]
+    //設置快捷鍵 可能與流覽器快捷鍵衝突 plugins/keystrokes/plugin.js.
+    config.blockedKeystrokes = [
+        CKEDITOR.CTRL + 66 /*B*/,
+        CKEDITOR.CTRL + 73 /*I*/,
+        CKEDITOR.CTRL + 85 /*U*/
+    ]
+    //設置編輯內元素的背景色的取值 plugins/colorbutton/plugin.js.
+    config.colorButton_backStyle = {
+        element : 'span',
+        styles : { 'background-color' : '#(color)' }
+    }
+    //設置前景色的取值 plugins/colorbutton/plugin.js
+    config.colorButton_colors = '000,800000,8B4513,2F4F4F,008080,000080,4B0082,696969,B22222,A52A2A,DAA520,
+        006400,40E0D0,0000CD,800080,808080,F00,FF8C00,FFD700,008000,0FF,00F,EE82EE,
+        A9A9A9,FFA07A,FFA500,FFFF00,00FF00,AFEEEE,ADD8E6,DDA0DD,D3D3D3,FFF0F5,
+        FAEBD7,FFFFE0,F0FFF0,F0FFFF,F0F8FF,E6E6FA,FFF’
+    //是否在選擇顏色時顯示“其他顏色”選項 plugins/colorbutton/plugin.js
+    config.colorButton_enableMore = false
+    //區塊的前景色預設值設置 plugins/colorbutton/plugin.js
+    config.colorButton_foreStyle = {
+        element : 'span',
+        styles : { 'color' : '#(color)' }
+    };
+    //所需要添加的CSS檔 在此添加 可使用相對路徑和網站的絕對路徑
+    config.contentsCss = './contents.css';
+    //文字方向
+    config.contentsLangDirection = 'rtl'; //從左到右
+    //CKeditor的配置檔 若不想配置 留空即可
+    CKEDITOR.replace( 'myfiled', { customConfig : './config.js' } );
+    //介面編輯框的背景色 plugins/dialog/plugin.js
+    config.dialog_backgroundCoverColor = '#fffefd'; //可設置參考
+    config.dialog_backgroundCoverColor = 'white' //默認
+    //背景的不透明度 數值應該在：0.0～1.0 之間 plugins/dialog/plugin.js
+    config.dialog_backgroundCoverOpacity = 0.5
+    //移動或者改變元素時 邊框的吸附距離 單位：圖元 plugins/dialog/plugin.js
+    config.dialog_magnetDistance = 20;
+    //是否拒絕本地拼寫檢查和提示 默認為拒絕 目前僅firefox和safari支持 plugins/wysiwygarea/plugin.js.
+    config.disableNativeSpellChecker = true
+    //進行表格編輯功能 如：添加行或列 目前僅firefox支持 plugins/wysiwygarea/plugin.js
+    config.disableNativeTableHandles = true; //默認為不開啟
+    //是否開啟 圖片和表格 的改變大小的功能 config.disableObjectResizing = true;
+    config.disableObjectResizing = false //默認為開啟
+    //設置HTML文檔類型
+    config.docType = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd%22' ;
+    //是否對編輯區域進行渲染 plugins/editingblock/plugin.js
+    config.editingBlock = true;
+    //編輯器中回車產生的標籤
+    config.enterMode = CKEDITOR.ENTER_P; //可選：CKEDITOR.ENTER_BR或CKEDITOR.ENTER_DIV
+    //是否使用HTML實體進行輸出 plugins/entities/plugin.js
+    config.entities = true;
+    //定義更多的實體 plugins/entities/plugin.js
+    config.entities_additional = '#39'; //其中#代替了&
+    //是否轉換一些難以顯示的字元為相應的HTML字元 plugins/entities/plugin.js
+    config.entities_greek = true;
+    //是否轉換一些拉丁字元為HTML plugins/entities/plugin.js
+    config.entities_latin = true;
+    //是否轉換一些特殊字元為ASCII字元 如"This is Chinese: 漢語."轉換為"This is Chinese: 汉语." plugins/entities/plugin.js
+    config.entities_processNumerical = false;
+    //添加新組件
+    config.extraPlugins = 'myplugin'; //非默認 僅示例
+    //使用搜索時的高亮色 plugins/find/plugin.js
+    config.find_highlight = {
+        element : 'span',
+        styles : { 'background-color' : '#ff0', 'color' : '#00f' }
+    };
+    //默認的字體名 plugins/font/plugin.js
+    config.font_defaultLabel = 'Arial';
+    //字體編輯時的字元集 可以添加常用的中文字元：宋體、楷體、黑體等 plugins/font/plugin.js
+    config.font_names = 'Arial;Times New Roman;Verdana';
+    //文字的默認式樣 plugins/font/plugin.js
+    config.font_style = {
+        element   : 'span',
+        styles   : { 'font-family' : '#(family)' },
+        overrides : [ { element : 'font', attributes : { 'face' : null } } ]
+    };
+    //字體默認大小 plugins/font/plugin.js
+    config.fontSize_defaultLabel = '12px';
+    //字體編輯時可選的字體大小 plugins/font/plugin.js
+    config.fontSize_sizes ='8/8px;9/9px;10/10px;11/11px;12/12px;14/14px;16/16px;18/18px;20/20px;22/22px;24/24px;26/26px;28/28px;36/36px;48/48px;72/72px'
+    //設置字體大小時 使用的式樣 plugins/font/plugin.js
+    config.fontSize_style = {
+        element   : 'span',
+        styles   : { 'font-size' : '#(size)' },
+        overrides : [ { element : 'font', attributes : { 'size' : null } } ]
+    };
+    //是否強制複製來的內容去除格式 plugins/pastetext/plugin.js
+    config.forcePasteAsPlainText =false //不去除
+    //是否強制用“&”來代替“&”plugins/htmldataprocessor/plugin.js
+    config.forceSimpleAmpersand = false;
+    //對address標籤進行格式化 plugins/format/plugin.js
+    config.format_address = { element : 'address', attributes : { class : 'styledAddress' } };
+    //對DIV標籤自動進行格式化 plugins/format/plugin.js
+    config.format_div = { element : 'div', attributes : { class : 'normalDiv' } };
+    //對H1標籤自動進行格式化 plugins/format/plugin.js
+    config.format_h1 = { element : 'h1', attributes : { class : 'contentTitle1' } };

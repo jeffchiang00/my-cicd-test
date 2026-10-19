@@ -1,0 +1,582 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*========================================================================================*/
+/*!!!!購物車頁面!!!!*/
+/*========================================================================================*/
+
+.cartPageNow { width:290px; height:10px; margin:0 auto; margin-top:30px; overflow:hidden;}
+.cartPageNow ul { width:400px; height:10px; background:url(../images/cart/now_line.png) repeat-x;}
+.cartPageNow ul li { float:left; width:10px; height:10px; margin-right:60px;}
+.cartPageNow ul li a { display:block; width:6px; height:6px; border-radius:5px;
+background:#979797; text-indent:-9999px; margin-left:2px; margin-top:2px;}
+.cartPageNow ul li a:hover { background:#000; border:2px solid #000;
+margin-left:0px; margin-top:0px;}
+
+
+.cartPage { width:960px; height:auto; margin:0 auto; margin-top:40px;}
+
+.cartTitle { width:100%; height:90px; background:#f9f9f9; margin:0 auto; color:#000;
+font-size:25px; font-family:"Times New Roman", Times, serif; text-align:center; line-height:90px;}
+
+.cartBoxBottom { width:100%; height:10px; margin:0 auto;
+background:url(../images/cart/box_bottom.png);}
+
+
+/*標題開關區*/
+.cartPage ul {}
+.cartPage ul li { display:block; width:100%; height:auto;}
+.cartPage>ul>li>a { display:block; width:100%; height:80px; background:#f9f9f9;
+text-decoration:none; font-weight:bold;}
+
+/*標題*/
+.cartPage ul li a .cartPtitle { width:100%; height:20px; padding-top:20px; color:#888;
+font-size:12px; font-family:Arial,"微軟正黑體"; text-align:center; line-height:20px;}
+.cartPage ul li a:hover .cartPtitle { width:100%; height:30px; padding-top:10px; color:#000;
+font-size:15px; font-family:Arial,"微軟正黑體"; text-align:center; line-height:30px;}
+.cartPage ul li.CPOver .cartPtitle { width:100%; height:30px; padding-top:10px; color:#000;
+font-size:15px; font-family:Arial,"微軟正黑體"; text-align:center; line-height:30px;}
+
+/*鉛筆*/
+.cartPage ul li a .cartPpen { width:20px; height:20px; margin:0 auto; margin-top:5px;
+background:url(../images/cart/cart_pen.png); opacity:.1;}
+.cartPage ul li a:hover .cartPpen { width:20px; height:20px; margin:0 auto; margin-top:5px;
+background:url(../images/cart/cart_pen.png); opacity:1;}
+.cartPage ul li.CPOver .cartPpen { width:20px; height:20px; margin:0 auto; margin-top:5px;
+background:url(../images/cart/cart_pen.png); opacity:1;}
+
+/*關閉打開 X 和 V*/
+.cartCloseCheck { display:block; width:130px; height:50px;
+margin:0 auto; margin-bottom:10px;}
+
+.cartClose { float:left; width:50px; height:50px;}
+.cartClose a { display:block; width:50px; height:50px;
+text-indent:-9999px; background:url(../images/cart/cart_close.png);}
+.cartClose a:hover { opacity:.5;}
+
+.cartCheck { float:right; width:50px; height:50px;}
+.cartCheck a { display:block; width:50px; height:50px;
+text-indent:-9999px; background:url(../images/cart/cart_ok.png);}
+.cartCheck a:hover { opacity:.5}
+
+.cartBack { float:left; width:50px; height:50px;}
+.cartBack a { display:block; width:50px; height:50px;
+text-indent:-9999px; background:url(../images/cart/cart_back.png);}
+.cartBack a:hover { opacity:.5;}
+
+
+
+/*=====流程步驟打開的上方虛線=====*/
+.cartOpenBorder { width:900px; height:20px; margin:0 auto;
+background:url(../images/cart/open_line.png) repeat-x;}
+
+
+.cartOpenBorderS5 { width:900px; height:20px; margin:0 auto;
+background:url(../images/cart/open_line.png) repeat-x;}
+
+
+/*=====輸入框大和小及文字的設定，每一個框架只負責對位用=====*/
+.cartFormTitle { width:230px; height:30px;
+font-size:13px; color:#595656; line-height:30px; padding-left:10px;
+letter-spacing:1px; font-family:Arial,"微軟正黑體";}
+
+.cartFormBoxS { width:228px; height:26px; color:#595656;
+border:1px solid #cdcdcd; padding-left:10px; letter-spacing:1px;}
+
+.cartFormBoxSdrop { width:240px; height:30px; color:#595656;
+border:1px solid #cdcdcd; padding-left:10px; letter-spacing:1px;}
+
+.cartFormBoxL { width:488px; height:26px; color:#595656;
+border:1px solid #cdcdcd; padding-left:10px; letter-spacing:1px;}
+
+.typeRed { color:#db9486;}
+
+
+
+
+/*=====流程步驟1=====*/
+.cartStepA { width:100%; height:auto; background:#f9f9f9;}
+.cartSABox { width:500px; height:490px; margin:0 auto;}
+.cartSAPos1 { width:230px; height:30px; float:left;}
+.cartSAPos1_in { width:240px; height:30px; float:left;}
+
+.cartSAPos2 { width:230px; height:30px; float:right;}
+.cartSAPos2_in { width:240px; height:30px; float:right;}
+
+.cartSAPos3 { width:230px; height:30px; float:left; padding-top:20px;}
+.cartSAPos3_in { width:500px; height:30px; float:left;}
+
+.cartSAPos4 { width:230px; height:30px; float:left; padding-top:20px;}
+.cartSAPos4_in { width:240px; height:30px; float:left;}
+.cartSAPos5 { width:230px; height:30px; float:right; padding-top:20px;}
+.cartSAPos5_in { width:240px; height:30px; float:right;}
+
+/*FB Btn*/
+.cartSAfbBtn { width:240px; height:40px; float:left; margin-top:40px;}
+.cartSAfbBtn a { display:block; width:240px; height:40px;
+text-indent:-9999px; background:url(../images/cart/cart_fb.png);}
+.cartSAfbBtn a:hover { opacity:.7}
+
+/*Twitter Btn*/
+.cartSAtwitterBtn { width:240px; height:40px; float:right; margin-top:40px;}
+.cartSAtwitterBtn a { display:block; width:240px; height:40px;
+text-indent:-9999px; background:url(../images/cart/cart_twitter.png);}
+.cartSAtwitterBtn a:hover { opacity:.7}
+
+/*or間線*/
+.cartSAorLine { width:500px; height:60px; float:left;
+background:url(../images/cart/fb_tw_line.png); color:#9a9a9a;
+font-size:13px; font-family:Arial,"微軟正黑體"; text-align:center; line-height:60px;}
+
+
+/*登入Login*/
+.cartSALoginBtn { width:160px; height:40px; margin:0 auto;}
+.cartSALoginBtn a { display:block; width:156px; height:36px; border:2px solid #707070;
+font-size:15px; font-family:Arial,"微軟正黑體"; text-decoration:none; color:#000;
+line-height:36px; letter-spacing:2px; text-align:center; font-weight:bold;}
+.cartSALoginBtn a:hover { border:2px solid #000; background:#000; color:#fff;}
+
+
+
+
+/*=====流程步驟2~3=====*/
+.cartStepB { width:100%; height:auto; background:#f9f9f9;}
+
+.cartStepC { width:100%; height:auto; background:#f9f9f9;}
+
+.cartSBBox { width:500px; height:340px; margin:0 auto;}
+
+.cartSCBox { width:500px; height:380px; margin:0 auto;}
+
+.cartSCInfo { width:100%; height:30px; margin-bottom:10px;
+font-size:12px; font-family:Arial,"微軟正黑體"; color:#7aa6bc;
+line-height:30px; letter-spacing:1px; text-align:center; font-weight:bold;}
+
+.cartSCInfo a { display:block; width:100%; height:30px; color:#7aa6bc;
+text-decoration:underline;}
+.cartSCInfo a:hover { text-decoration:none;}
+
+/**/
+.cartSBCPos1 { width:230px; height:30px; float:left;}
+.cartSBCPos1_in { width:500px; height:30px; float:left; margin-top:20px;}
+
+.cartSBCPos2_in { width:240px; height:30px; float:left; margin-top:20px;}
+.cartSBCPos3_in { width:240px; height:30px; float:right; margin-top:20px;}
+
+.cartSBCPos4 { width:230px; height:30px; float:left; padding-top:20px;}
+.cartSBCPos4_in { width:240px; height:30px; float:left;}
+
+.cartSBCPos5 { width:230px; height:30px; float:right; padding-top:20px;}
+.cartSBCPos5_in { width:240px; height:30px; float:right;}
+
+
+
+
+/*=====流程步驟4=====*/
+.cartStepD { width:100%; height:auto; background:#f9f9f9;}
+.cartSDBox { width:480px; height:180px; margin:0 auto;}
+
+.cartSDBox ul { width:530px; height:30px; padding-top:60px;}
+.cartSDBox ul li { float:left; display:block; width:140px; height:30px; margin-right:50px;
+line-height:30px; font-family:Arial,"微軟正黑體"; font-size:13px; letter-spacing:1px;}
+.cartSDBox ul li.SDboxS { display:block; width:100px; height:30px;}
+
+
+
+/*選取*/
+.cartSDBoxCheck { float:left;font-size:13px; color:#595656;
+line-height:30px;}
+.cartSDBoxCheckBox { float:left; display:block; width:18px; height:18px; background:#FFF;
+border:1px solid #cdcdcd; margin-right:10px; margin-top:5px;}
+.cartSDBoxCheckBoxOn { display:block; width:14px; height:14px; background:#787878;
+margin-top:2px; margin-left:2px;}
+
+
+
+
+/*=====流程步驟5=====*/
+.cartStepE { width:100%; height:auto; background:#f9f9f9;}
+
+.cartSEBox { width:540px; height:260px; margin:0 auto;
+font-family:Arial,"微軟正黑體"; font-size:12px; line-height:30px;
+text-align:center; color:#000; font-weight:bold;}
+
+/*連絡資料*/
+.cartSEbasic { width:100%; height:30px; margin:0 auto; margin-top:10px;}
+.cartSEbasicName { float:left; width:130px; height:30px; }
+.cartSEbasicMail { float:left; margin-left:10px; width:260px; height:30px;}
+.cartSEbasicPhone { float:right; width:130px; height:30px;}
+
+/*連絡地址*/
+.cartSEbasicT { width:100%; height:30px; margin-top:20px; font-size:13px;}
+.cartSEbasicAdd { width:100%; height:30px; margin-top:10px; color:#757575;}
+.cartSEbasicLine { width:140px; height:2px; background:#acacac; margin:0 auto; margin-top:18px;}
+
+.cartSEorder { width:940px; height:70px; background:#f9f9f9; margin:0 auto;
+font-family:Arial,"微軟正黑體"; font-size:20px; line-height:70px;
+text-align:center; color:#000; font-weight:bold; letter-spacing:2px;}
+
+/*購買的清單*/
+.cartSEList { width:900px; height:auto; margin:0 auto; margin-top:-20px; 
+font-family:Arial,"微軟正黑體"; font-size:13px; line-height:20px;
+text-align:center; color:#000; font-weight:bold; letter-spacing:1px;}
+.cartSEList ul {}
+.cartSEList ul li { width:100%; height:120px; margin-top:20px;
+background:url(../images/cart/cart_list_bg.png) repeat-x;}
+.cartSEList ul li .cartLimg { float:left; width:100px; height:100px; background:#CCC;}
+.cartLimg img { width:100%; height:auto;}
+
+.cartSEList ul li h3 { float:left; width:450px; height:20px;
+margin-left:80px; color:#707070; text-align:left;}
+
+.blueText { color:#7aa6bc;}
+
+/*凱文哥我新修改的在這裡喲!!!!12月23號*/
+.texeC { display:table; width:100%; height:100px; *position:relative;}
+.texeC span { display:table-cell; *top:50%; *position:absolute; vertical-align:middle;}
+.texeC span .textCC { *position:relative; *top:-50%;}
+
+
+.cartSEList ul li h4 { float:left; width:50px; height:20px;
+margin-left:30px; margin-top:40px; text-align:left;}
+
+.cartSEList ul li h5 { float:left; width:90px; height:20px;
+margin-left:30px; margin-top:40px; text-align:left;}
+
+.cartSEList ul li h6 { float:left; width:20px; height:20px;
+margin-left:30px; margin-top:40px;}
+.cartSEList ul li h6 a { display:block; width:20px; height:20px;
+text-indent:-9999px; background:url(../images/cart/cart_list_close.png) top;}
+
+.cartSEList ul li h6 a:hover { background:url(../images/cart/cart_list_close.png) bottom;}
+
+/*小計金額*/
+.cartSEListMoney { width:100%; height:60px;}
+.cartSEListMoney h2 { float:right; width:50px; height:30px;
+margin-right:15px; margin-top:20px; line-height:30px;
+font-size:11px;}
+.cartSEListMoney h1 { float:right; width:110px; height:40px;
+margin-right:80px; margin-top:10px; line-height:40px;}
+.cartSEListMoney h1 .BigMoney {}
+
+/*運費金額*/
+.cartSEListShipping { width:100%; height:50px;}
+.cartSEListShipping h2 { float:right; width:50px; height:30px;
+margin-right:15px; margin-top:5px; line-height:30px;
+font-size:11px;}
+.cartSEListShipping h1 { float:right; width:110px; height:40px;
+margin-right:80px; margin-top:-5px; line-height:40px;}
+.cartSEListShipping h1 .ShippingMoney {}
+
+/*結算總金額*/
+.cartSEListTotal { width:100%; height:130px;}
+.cartSEListTotal h2 { float:right; width:50px; height:30px;
+margin-right:15px; margin-top:20px; line-height:30px;
+font-size:11px;}
+.cartSEListTotal h1 { float:right; width:110px; height:40px;
+margin-right:80px; margin-top:10px; line-height:40px;}
+.cartSEListTotal h1 .TotalMoney { font-size:26px;}
+
+
+
+@media screen and (max-width:480px){
+	/*========================================================================================*/
+	/*!!!!購物車頁面!!!!*/
+	/*========================================================================================*/
+	
+	.cartPageNow { width:210px; height:10px; margin:0 auto; margin-top:15px; overflow:hidden;}
+	.cartPageNow ul { width:400px; height:10px; background:url(../images/cart/s_now_line.png) center;
+	background-size:210px; height:10px;}
+	.cartPageNow ul li { float:left; width:10px; height:10px; margin-right:40px;}
+	.cartPageNow ul li a { display:block; width:6px; height:6px; border-radius:5px;
+	background:#979797; text-indent:-9999px; margin-left:2px; margin-top:2px;}
+	.cartPageNow ul li a:hover { background:#000; border:2px solid #000;
+	margin-left:0px; margin-top:0px;}
+	
+	
+	.cartPage { width:96%; height:auto; margin:0 auto; margin-top:15px;}
+	
+	.cartTitle { width:100%; height:55px; background:#f9f9f9; margin:0 auto; color:#000;
+	font-size:20px; font-family:"Times New Roman", Times, serif; text-align:center; line-height:55px;}
+	
+	.cartBoxBottom { width:100%; height:10px; margin:0 auto;
+	background:url(../images/cart/box_bottom.png) center; background-size:100% 10px;}
+	
+	
+	/*標題開關區*/
+	.cartPage ul {}
+	.cartPage ul li { display:block; width:100%; height:auto;}
+	.cartPage>ul>li>a { display:block; width:100%; height:55px; background:#f9f9f9;
+	text-decoration:none; font-weight:bold;}
+	
+	/*標題*/
+	.cartPage ul li a .cartPtitle { width:100%; height:10px; padding-top:10px; color:#888;
+	font-size:9px; font-family:Arial,"微軟正黑體"; text-align:center; line-height:10px;}
+	.cartPage ul li a:hover .cartPtitle { width:100%; height:15px; padding-top:10px; color:#000;
+	font-size:15px; font-family:Arial,"微軟正黑體"; text-align:center; line-height:15px;}
+	.cartPage ul li.CPOver .cartPtitle { width:100%; height:15px; padding-top:10px; color:#000;
+	font-size:15px; font-family:Arial,"微軟正黑體"; text-align:center; line-height:15px;}
+	
+	/*鉛筆*/
+	.cartPage ul li a .cartPpen { width:15px; height:15px; margin:0 auto; margin-top:5px;
+	background:url(../images/cart/cart_pen.png); opacity:.1;
+	background-size:15px 15px;}
+	.cartPage ul li a:hover .cartPpen { width:15px; height:15px; margin:0 auto; margin-top:5px;
+	background:url(../images/cart/cart_pen.png); opacity:1;
+	background-size:15px 15px;}
+	.cartPage ul li.CPOver .cartPpen { width:15px; height:15px; margin:0 auto; margin-top:5px;
+	background:url(../images/cart/cart_pen.png); opacity:1;
+	background-size:15px 15px;}
+	
+	
+	
+	/*關閉打開 X 和 V*/
+	.cartCloseCheck { display:block; width:120px; height:50px;
+	margin:0 auto; margin-bottom:10px;}
+	
+	.cartClose { float:left; width:50px; height:50px;}
+	.cartClose a { display:block; width:50px; height:50px;
+	text-indent:-9999px; background:url(../images/cart/s_cart_close.png);
+	background-size:50px;}
+	.cartClose a:hover { opacity:.5;}
+	
+	.cartCheck { float:right; width:50px; height:50px;}
+	.cartCheck a { display:block; width:50px; height:50px;
+	text-indent:-9999px; background:url(../images/cart/s_cart_ok.png);
+	background-size:50px;}
+	.cartCheck a:hover { opacity:.5}
+	
+	.cartBack { float:left; width:50px; height:50px;}
+	.cartBack a { display:block; width:50px; height:50px;
+	text-indent:-9999px; background:url(../images/cart/s_cart_back.png);
+	background-size:50px;}
+	.cartBack a:hover { opacity:.5;}
+	
+	
+	
+	
+	/*=====流程步驟打開的上方虛線=====*/
+	.cartOpenBorder { width:84%; height:10px; margin:0 auto;
+	background:url(../images/cart/open_line.png) repeat-x;}
+	
+	.cartOpenBorderS5 { width:96%; height:10px; margin:0 auto; margin-top:20px;
+	background:url(../images/cart/open_line.png) repeat-x;}
+	
+	
+	/*=====輸入框大和小及文字的設定，每一個框架只負責對位用=====*/
+	.cartFormTitle { width:100%; height:25px; margin:0 auto;
+	font-size:10px; color:#595656; line-height:25px; padding-left:0px;
+	letter-spacing:1px; font-family:Arial,"微軟正黑體";}
+	
+	.cartFormBoxS { width:96%; height:26px; color:#595656;
+	border:1px solid #cdcdcd; padding-left:10px; letter-spacing:1px;}
+	
+	.cartFormBoxSdrop { width:100%; height:30px; color:#595656;
+	border:1px solid #cdcdcd; padding-left:10px; letter-spacing:1px;}
+	
+	.cartFormBoxL { width:96%; height:26px; color:#595656;
+	border:1px solid #cdcdcd; padding-left:10px; letter-spacing:1px;}
+	
+	.typeRed { color:#db9486;}
+	
+	
+	
+	/*=====流程步驟1=====*/
+	.cartStepA { width:100%; height:auto; background:#f9f9f9;}
+	.cartSABox { width:84%; height:auto; margin:0 auto;}
+	.cartSAPos1 { width:100%; height:25px; float:none; }
+	.cartSAPos1_in { width:100%; height:30px; float:none; margin-top:-70px;}
+	
+	.cartSAPos2 { width:100%; height:25px; float:none; margin-top:45px;}
+	.cartSAPos2_in { width:100%; height:30px; float:none; margin-top:40px;}
+	
+	.cartSAPos3 { width:100%; height:25px; float:none; padding-top:0px; margin-top:15px;}
+	.cartSAPos3_in { width:100%; height:30px; float:none;}
+	
+	.cartSAPos4 { width:100%; height:25px; float:none; padding-top:0px; margin-top:15px;}
+	.cartSAPos4_in { width:100%; height:30px; float:none; margin-top:-70px;}
+	.cartSAPos5 { width:100%; height:25px; float:none; padding-top:0px; margin-top:40px;}
+	.cartSAPos5_in { width:100%; height:30px; float:none; margin-top:40px;}
+	
+	/*FB Btn*/
+	.cartSAfbBtn { width:125px; height:40px; float:left; margin-top:20px;}
+	.cartSAfbBtn a { display:block; width:125px; height:40px;
+	text-indent:-9999px; background:url(../images/cart/s_cart_fb.png);
+	background-size:125px 40px;}
+	.cartSAfbBtn a:hover { opacity:.7}
+	
+	/*Twitter Btn*/
+	.cartSAtwitterBtn { width:125px; height:40px; float:right; margin-top:20px;}
+	.cartSAtwitterBtn a { display:block; width:125px; height:40px;
+	text-indent:-9999px; background:url(../images/cart/s_cart_twitter.png);
+	background-size:125px 40px;}
+	.cartSAtwitterBtn a:hover { opacity:.7}
+	
+	/*or間線*/
+	.cartSAorLine { width:100%; height:40px; float:left;
+	background:url(../images/cart/s_fb_tw_line.png);
+	background-size:100% 40px; color:#9a9a9a;
+	font-size:13px; font-family:Arial,"微軟正黑體"; text-align:center; line-height:40px;}
+	
+	
+	/*登入Login*/
+	.cartSALoginBtn { width:140px; height:40px; margin:0 auto; padding-bottom:40px;}
+	.cartSALoginBtn a { display:block; width:136px; height:36px; border:2px solid #707070;
+	font-size:15px; font-family:Arial,"微軟正黑體"; text-decoration:none; color:#000;
+	line-height:36px; letter-spacing:2px; text-align:center; font-weight:bold;}
+	.cartSALoginBtn a:hover { border:2px solid #000; background:#000; color:#fff;}
+	
+	
+	
+	/*=====流程步驟2~3=====*/
+	.cartStepB { width:100%; height:auto; background:#f9f9f9;}
+	
+	.cartStepC { width:100%; height:auto; background:#f9f9f9;}
+	
+	.cartSBBox { width:84%; height:auto; margin:0 auto; }
+	
+	.cartSCBox { width:84%; height:auto; margin:0 auto; }
+	
+	.cartSCInfo { width:100%; height:25px; margin-bottom:10px;
+	font-size:9px; font-family:Arial,"微軟正黑體"; color:#7aa6bc;
+	line-height:25px; letter-spacing:0px; text-align:center; font-weight:bold;}
+	
+	.cartSCInfo a { display:block; width:100%; height:25px; color:#7aa6bc;
+	text-decoration:underline;}
+	.cartSCInfo a:hover { text-decoration:none;}
+	
+	/**/
+	.cartSBCPos1 { width:100%; height:25px; float:none;}
+	.cartSBCPos1_in { width:100%; height:30px; float:none;}
+	
+	.cartSBCPos2_in { width:100%; height:30px; float:none; margin-top:20px;}
+	.cartSBCPos3_in { width:100%; height:30px; float:none; margin-top:20px;}
+	
+	.cartSBCPos4 { width:100%; height:30px; float:none; padding-top:0px; margin-top:15px;}
+	.cartSBCPos4_in { width:100%; height:30px; float:none; margin-top:-70px;}
+	
+	.cartSBCPos5 { width:100%; height:30px; float:none; padding-top:0px; margin-top:40px;}
+	.cartSBCPos5_in { width:100%; height:30px; float:none; margin-top:40px; padding-bottom:40px;}
+	
+	
+	
+	
+	/*=====流程步驟4=====*/
+	.cartStepD { width:100%; height:auto; background:#f9f9f9;}
+	.cartSDBox { width:70%; height:auto; margin:0 auto; padding-bottom:20px;}
+	
+	.cartSDBox ul { width:100%; height:30px; padding-top:20px;}
+	.cartSDBox ul li { float:left; display:block; width:100%; height:25px;
+	margin-right:0px; margin-bottom:20px;
+	line-height:25px; font-family:Arial,"微軟正黑體"; font-size:9px; letter-spacing:1px;}
+	.cartSDBox ul li.SDboxS { display:block; width:100%; height:25px;}
+
+	
+	/*選取*/
+	.cartSDBoxCheck { float:left;font-size:13px; color:#595656; line-height:25px;}
+	.cartSDBoxCheckBox { float:left; display:block; width:23px; height:23px; background:#FFF;
+	border:1px solid #cdcdcd; margin-right:10px; margin-top:0px;}
+	.cartSDBoxCheckBoxOn { display:block; width:17px; height:17px; background:#787878;
+	margin-top:3px; margin-left:3px;}
+	
+	
+	
+	
+	/*=====流程步驟5=====*/
+	.cartStepE { width:100%; height:auto; background:#f9f9f9;}
+	
+	.cartSEBox { width:84%; height:auto; margin:0 auto;
+	font-family:Arial,"微軟正黑體"; font-size:9px; line-height:25px;
+	text-align:center; color:#000; font-weight:bold;}
+	
+	/*連絡資料*/
+	.cartSEbasic { width:100%; height:80px; margin:0 auto; margin-top:10px;}
+	.cartSEbasicName { float:none; width:100%; height:20px; margin-bottom:10px;
+	font-size:11px;}
+	.cartSEbasicMail { float:none; margin-left:0px; width:100%; height:20px; margin-bottom:10px;
+	font-size:11px;}
+	.cartSEbasicPhone { float:none; width:100%; height:20px;
+	font-size:11px;}
+	
+	/*連絡地址*/
+	.cartSEbasicT { width:100%; height:20px; margin-top:25px; font-size:11px;}
+	.cartSEbasicAdd { width:100%; height:auto; margin-top:10px; color:#757575;}
+	.cartSEbasicLine { width:140px; height:2px; background:#acacac; margin:0 auto; margin-top:18px;}
+	
+	.cartSEorder { width:96%; height:45px; background:#f9f9f9; margin:0 auto;
+	font-family:Arial,"微軟正黑體"; font-size:12px; line-height:45px;
+	text-align:center; color:#000; font-weight:bold; letter-spacing:1px;}
+	
+	/*購買的清單*/
+	.cartSEList { width:96%; height:auto; margin:0 auto;
+	font-family:Arial,"微軟正黑體"; font-size:9px; line-height:15px;
+	text-align:center; color:#000; font-weight:bold; letter-spacing:1px;}
+	.cartSEList ul {}
+	.cartSEList ul li { width:100%; height:65px; margin-top:15px;
+	background:url(../images/cart/s_cart_list_bg.png) bottom repeat-x ;
+	background-size:120px 120px;}
+	.cartSEList ul li .cartLimg { float:left; width:50px; height:50px;}
+	.cartLimg img { width:100%; height:auto;}
+	
+	.cartSEList ul li h3 { float:left; width:115px; height:65px;
+	margin-left:10px; margin-top:2px; color:#707070; text-align:left; font-weight:100;
+	line-height:inherit;}
+	
+	
+	/*凱文哥我新修改的在這裡喲!!!!12月23號*/
+	.texeC { display:table; width:100%; height:50px; *position:relative;}
+	.texeC span { display:table-cell; *top:50%; *position:absolute; vertical-align:middle;}
+	.texeC span .textCC { *position:relative; *top:-50%;}
+	
+	
+	.cartSEList ul li h4 { float:left; width:20px; height:20px;
+	margin-left:0px; margin-top:20px; text-align:left;}
+	
+	.cartSEList ul li h5 { float:left; width:55px; height:20px;
+	margin-left:20px; margin-top:20px; text-align:left;}
+	
+	.cartSEList ul li h6 { float:right; width:20px; height:20px;
+	margin-left:0px; margin-top:17px;}
+	.cartSEList ul li h6 a { display:block; width:20px; height:20px;
+	text-indent:-9999px; background:url(../images/cart/s_cart_list_close.png) top;
+	background-size:20px 40px;}
+	
+	.cartSEList ul li h6 a:hover { background:url(../images/cart/s_cart_list_close.png) bottom;
+	background-size:20px 40px;}
+	
+	
+	/*小計金額*/
+	.cartSEListMoney { width:60%; height:auto; margin:0 auto; margin-top:10px; padding-bottom:10px;}
+	.cartSEListMoney h2 { float:left; width:50px; height:30px;
+	margin-right:0px; margin-top:10px; line-height:30px;
+	font-size:11px;}
+	.cartSEListMoney h1 { float:right; width:110px; height:40px;
+	margin-right:0px; margin-top:0px; line-height:40px;}
+	.cartSEListMoney h1 .BigMoney {}
+	
+	/*運費金額*/
+	.cartSEListShipping { width:60%; height:auto; margin:0 auto; margin-top:0px; padding-bottom:0px;}
+	.cartSEListShipping h2 { float:left; width:50px; height:30px;
+	margin-right:0px; margin-top:0px; line-height:30px;
+	font-size:11px;}
+	.cartSEListShipping h1 { float:right; width:110px; height:40px;
+	margin-right:0px; margin-top:-10px; line-height:40px;}
+	.cartSEListShipping h1 .ShippingMoney {}
+	
+	/*結算總金額*/
+	.cartSEListTotal { width:60%; height:auto; margin:0 auto; margin-top:10px; padding-bottom:20px;}
+	.cartSEListTotal h2 { float:left; width:50px; height:30px;
+	margin-right:0px; margin-top:0px; line-height:30px;
+	font-size:11px;}
+	.cartSEListTotal h1 { float:right; width:110px; height:40px;
+	margin-right:0px; margin-top:-5px; line-height:40px;}
+	.cartSEListTotal h1 .TotalMoney { font-size:26px;}
+	
+}
+
+
+
+
+
+
+
