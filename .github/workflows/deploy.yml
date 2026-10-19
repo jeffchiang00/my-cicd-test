@@ -13,7 +13,7 @@ jobs:
       - name: 1. 檢出 Git 最新程式碼
         uses: actions/checkout@v3
 
-       Levi: 2. 本地直接熱同步 WordPress 與 獨立 PHP 專案
+      - name: 2. 本地直接熱同步 WordPress 與 獨立 PHP 專案
         run: |
           echo "🚚 1. 清理遠端舊檔案，防止任何層級殘留干擾..."
           sudo rm -rf /var/lib/docker/volumes/my-project_wp_data/_data/dolly
@@ -26,7 +26,6 @@ jobs:
           echo "🚚 3. 執行萬用掃描：精準補載獨立 CodeIgniter 專案 dolly..."
           sudo mkdir -p /var/lib/docker/volumes/my-project_wp_data/_data/dolly
           
-          # 💡 萬用防呆檢查：不論 dolly 在 Git 倉庫的外層還是內層，通通強制抓取並平鋪進去
           if [ -d "dolly" ]; then
               sudo cp -r dolly/* /var/lib/docker/volumes/my-project_wp_data/_data/dolly/
           elif [ -d "wordpress-src/dolly" ]; then
@@ -35,7 +34,7 @@ jobs:
               sudo cp -r Dolly/* /var/lib/docker/volumes/my-project_wp_data/_data/dolly/
           fi
           
-          echo "🚚 4. 強制刷新虛頂級網頁伺服器讀寫權限..."
+          echo "🚚 4. 強制刷新頂級網頁伺服器讀寫權限..."
           sudo chown -R 33:33 /var/lib/docker/volumes/my-project_wp_data/_data/
 
       - name: 3. 執行本機 Nginx 路由重載
