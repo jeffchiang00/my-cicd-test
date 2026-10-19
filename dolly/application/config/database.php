@@ -50,10 +50,10 @@ $active_record = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => getenv('WORDPRESS_DB_HOST') ? getenv('WORDPRESS_DB_HOST') : 'db',
-	'username' => getenv('WORDPRESS_DB_USER') ? getenv('WORDPRESS_DB_USER') : 'wp_user',
-	'password' => getenv('WORDPRESS_DB_PASSWORD') ? getenv('WORDPRESS_DB_PASSWORD') : 'db_password',
-	'database' => 'gapure_dolly', // 👈 保持讀取這包專案在日誌中指定的 gapure_dolly 資料庫
+	'hostname' => '172.17.0.6',        // 👈 精準鎖定您上一輪實測成功的 172.17.0.6 內網 IP
+	'username' => 'root',              // 👈 帳號直接改用最高權限的 root
+	'password' => ‘root_password, // 👈 填入真實的 root 密碼！
+	'database' => 'gapure_dolly',      // 👈 要存取的目標資料庫
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
@@ -69,7 +69,6 @@ $db['default'] = array(
 	'failover' => array(),
 	'save_queries' => TRUE
 );
-
 
 /*
 $db['default']['hostname'] = 'db';
