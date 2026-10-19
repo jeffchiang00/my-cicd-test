@@ -13,10 +13,9 @@ jobs:
       - name: 1. 檢出 Git 最新程式碼
         uses: actions/checkout@v3
 
-      # === 【自動化部署區】雙專案同時點對點本機熱同步 ===
       - name: 2. 本地直接熱同步 WordPress 與 獨立 PHP 專案
         run: |
-          echo "🚚 1. 清理遠端舊檔案，防止層級殘留干擾..."
+          echo "🚚 1. 清理遠端舊檔案..."
           sudo rm -rf /var/lib/docker/volumes/my-project_wp_data/_data/dolly
           sudo rm -rf /var/lib/docker/volumes/my-project_wp_data/_data/wp-content/themes/dolly
           
@@ -26,14 +25,12 @@ jobs:
           
           echo "🚚 3. 同步獨立 CodeIgniter 專案 dolly..."
           if [ -d "dolly" ]; then
-              # 將整個純淨的 dolly 資料夾完整複製到 Nginx 的對外網頁根目錄
               sudo cp -r dolly /var/lib/docker/volumes/my-project_wp_data/_data/
           fi
           
-          echo "🚚 4. 強制刷新虛擬機 Docker 掛載目錄之網頁伺服器最高讀寫權限..."
+          echo "🚚 4. 強制刷新最高讀寫權限..."
           sudo chown -R 33:33 /var/lib/docker/volumes/my-project_wp_data/_data/
 
-      # === 本地執行區 ===
       - name: 3. 執行本機 Nginx 路由重載
         run: |
           echo "🔄 執行 Nginx 熱重載..."
