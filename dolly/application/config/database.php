@@ -48,9 +48,9 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = '192.168.0.109';
-$db['default']['username'] = 'jerryliu';//dolly_ci
-$db['default']['password'] = 'X0921565659x+';//19880810
+$db['default']['hostname'] = 'db';
+$db['default']['username'] = 'wp_user';//dolly_ci
+$db['default']['password'] = 'wp_password';//19880810
 $db['default']['database'] = 'gapure_dolly';//dolly_ci
 $db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';
