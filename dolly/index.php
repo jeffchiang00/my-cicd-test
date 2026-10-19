@@ -3,6 +3,11 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT);
 ini_set('display_errors', 0);
 ini_set('log_errors', 1);
 
+// ⭕ 終極補丁：定義遺失的 SITE_URL 常數，徹底阻止 PHP 8 語法崩潰
+if (!defined('SITE_URL')) {
+    define('SITE_URL', 'http://192.168.0.109/dolly/');
+}
+
 define('ENVIRONMENT', 'development');
 
 switch (ENVIRONMENT)
@@ -20,41 +25,70 @@ switch (ENVIRONMENT)
 
 $system_path = 'system';
 $application_folder = 'application';
+$view_folder = 'application/views';
 
 if (defined('STDIN'))
 {
 	chdir(dirname(__FILE__));
 }
 
-if (realpath($system_path) !== FALSE)
+if (($_temp = realpath($system_path)) !== FALSE)
 {
-	$system_path = realpath($system_path).'/';
+	$system_path = $_temp.'/';
 }
-
-$system_path = rtrim($system_path, '/').'/';
+else
+{
+	$system_path = rtrim($system_path, '/').'/';
+}
 
 if ( ! is_dir($system_path))
 {
-	exit("Your system folder path does not appear to be set correctly. Please open the following file and correct this: ".pathinfo(__FILE__, PATHINFO_BASENAME));
+	header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
+	echo 'Your system folder path does not appear to be set correctly. Please open the following file and correct this: '.pathinfo(__FILE__, PATHINFO_BASENAME);
+	exit(3);
 }
 
 define('SELF', pathinfo(__FILE__, PATHINFO_BASENAME));
-define('EXT', '.php');
-define('BASEPATH', str_replace("\\", "/", $system_path));
-define('FCPATH', str_replace(SELF, '', __FILE__));
-define('SYSDIR', end(explode('/', trim(BASEPATH, '/'))));
+define('BASEPATH', str_replace('\\', '/', $system_path));
+define('FCPATH', dirname(__FILE__).'/');
+define('SYSDIR', basename(BASEPATH));
 
 if (is_dir($application_folder))
 {
-	define('APPPATH', $application_folder.'/');
+	if (realpath($application_folder) !== FALSE)
+	{
+		$application_folder = realpath($application_folder);
+	}
+	define('APPPATH', rtrim($application_folder, '/').'/');
 }
 else
 {
 	if ( ! is_dir(BASEPATH.$application_folder.'/'))
 	{
-		exit("Your application folder path does not appear to be set correctly. Please open the following file and correct this: ".SELF);
+		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
+		echo 'Your application folder path does not appear to be set correctly. Please open the following file and correct this: '.SELF;
+		exit(3);
 	}
 	define('APPPATH', BASEPATH.$application_folder.'/');
+}
+
+if (is_dir($view_folder))
+{
+	if (realpath($view_folder) !== FALSE)
+	{
+		$view_folder = realpath($view_folder);
+	}
+	define('VIEWPATH', rtrim($view_folder, '/').'/');
+}
+else
+{
+	if ( ! is_dir(APPPATH.'views/'))
+	{
+		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
+		echo 'Your view folder path does not appear to be set correctly. Please open the following file and correct this: '.SELF;
+		exit(3);
+	}
+	define('VIEWPATH', APPPATH.'views/');
 }
 
 require_once BASEPATH.'core/CodeIgniter.php';
