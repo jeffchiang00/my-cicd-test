@@ -1,4 +1,9 @@
 <?php
+
+// ⭕ 終極環境校正：直接告訴 CI3 它是部署在 /dolly/ 子目錄下，徹底擊碎語系套件的無限跳轉！
+$_SERVER['SCRIPT_NAME'] = '/dolly/index.php';
+$_SERVER['REQUEST_URI'] = str_replace('/dolly/index.php/', '/dolly/', $_SERVER['REQUEST_URI']);
+
 error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT & ~E_WARNING);
 ini_set('display_errors', 0);
 ini_set('log_errors', 1);

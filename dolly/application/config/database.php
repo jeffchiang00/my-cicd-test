@@ -51,7 +51,7 @@ $active_record = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => '172.17.0.4',        // 👈 精準鎖定實實運行的 MariaDB 內網 IP
+	'hostname' => '172.17.0.6',        // 👈 精準鎖定實實運行的 MariaDB 內網 IP
 	'username' => 'root',              // 👈 帳號
 	'password' => 'root_password',          // 👈 密碼
 	'database' => 'gapure_dolly',      // 👈 資料庫名稱
