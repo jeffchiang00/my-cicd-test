@@ -15,33 +15,26 @@ jobs:
 
       - name: 2. 本地直接熱同步 WordPress 與 獨立 PHP 專案
         run: |
-          echo "🚚 1. 清理遠端舊檔案，防止任何層級殘留干擾..."
-          sudo rm -rf /var/lib/docker/volumes/my-project_wp_data/_data/dolly
-          sudo rm -rf /var/lib/docker/volumes/my-project_wp_data/_data/wp-content/themes/dolly
-          
-          echo "🚚 2. 同步 WordPress 主站核心檔案..."
+          echo "🚚 1. 建立目標持久化目錄空間..."
           sudo mkdir -p /var/lib/docker/volumes/my-project_wp_data/_data/
-          sudo cp -r wordpress-src/* /var/lib/docker/volumes/my-project_wp_data/_data/
           
-          echo "🚚 3. 執行萬用掃描：精準補載獨立 CodeIgniter 專案 dolly..."
+          echo "🚚 2. 使用 -a 參數精準同步 WordPress 核心檔案（包含隱藏的 .htaccess）..."
+          sudo cp -a wordpress-src/. /var/lib/docker/volumes/my-project_wp_data/_data/
+          
+          echo "🚚 3. 精準建立獨立的小寫 dolly 目錄..."
           sudo mkdir -p /var/lib/docker/volumes/my-project_wp_data/_data/dolly
           
+          echo "🚚 4. 將 Mac 端獨立的 dolly 原始碼平鋪投放進去..."
           if [ -d "dolly" ]; then
-              sudo cp -r dolly/* /var/lib/docker/volumes/my-project_wp_data/_data/dolly/
-          elif [ -d "wordpress-src/dolly" ]; then
-              sudo cp -r wordpress-src/dolly/* /var/lib/docker/volumes/my-project_wp_data/_data/dolly/
-          elif [ -d "Dolly" ]; then
-              sudo cp -r Dolly/* /var/lib/docker/volumes/my-project_wp_data/_data/dolly/
+              sudo cp -a dolly/. /var/lib/docker/volumes/my-project_wp_data/_data/dolly/
           fi
           
-          echo "🚚 4. 強制刷新頂級網頁伺服器讀寫權限..."
+          echo "🚚 5. 強制刷新最高網頁讀寫權限..."
           sudo chown -R 33:33 /var/lib/docker/volumes/my-project_wp_data/_data/
 
-      - name: 3. 執行本機 Nginx 路由重載
+      - name: 3. 執行本機 Nginx 與 Apache 路由重載
         run: |
-          echo "🔄 執行 Nginx 熱重載..."
+          echo "🔄 執行 Nginx 與 Apache 容器重啟，全面刷新快取記憶..."
           cd /root/my-project
-          if [ $(docker ps -q -f name=nginx_proxy) ]; then
-              sudo docker compose exec -T nginx nginx -s reload
-          fi
-          echo "🎉 [Success] 雙專案全自動化自體熱部署完成！"
+          sudo docker compose restart
+          echo "🎉 [Success] 雙專案獨立路徑全新刷新完成！"
