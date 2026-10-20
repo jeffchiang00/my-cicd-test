@@ -17,8 +17,22 @@ ob_start(function($buffer) {
             
             // 既然有人想跳轉，代表畫面可能被清空了。
             // 我們在最安全墊底的情況下，至少提示或直接把核心準備好的緩衝區畫面吐出來！
+            // 2. 【核心填補大招】既然內部因為跳轉而 exit 導致緩衝區是空的
+            // 我們直接在 PHP 臨死前，親手把 welcome 控制器的 index 畫面撈出來填滿純白！
+            $CI =& get_instance();
+            if (isset($CI)) {
+                // 如果核心已經準備好，強制呼叫並捕獲 welcome 首頁的真實畫面
+                if (!class_exists('Welcome')) {
+                    include_once APPPATH . 'controllers/welcome.php';
+                }
+                $welcome = new Welcome();
+                ob_start();
+                $welcome->index();
+                $real_html = ob_get_clean();
+                return $real_html; // ⭕ 完美的真實首頁畫面直接取代純白！
+            }
             return $buffer;
-        }
+	}
     }
     return $buffer;
 });
