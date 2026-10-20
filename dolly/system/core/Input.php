@@ -388,7 +388,7 @@ class CI_Input {
 					break;
 			}
 
-			return (bool) filter_var($ip, FILTER_VALIDATE_IP, $flag);
+			return (bool) filter_var($ip, FILTER_VALIDATE_IP, 0);
 		}
 
 		if ($which !== 'ipv6' && $which !== 'ipv4')
