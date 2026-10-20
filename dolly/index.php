@@ -3,13 +3,15 @@
  * CodeIgniter
  * Standard index.php Framework Launcher (語法完美修正 + 官方路由重置版)
  */
-
-// ⭕ 終極環境偽裝：把 Nginx 剝離的 index.php 統統補回 PHP 全域變數中！
-// 這樣 CI3 內部的語系模組不論怎麼抓變數，都會認為網址「百分之百合乎潔癖格式」，再也找不到任何理由跳轉！
+// ⭕ 動態對齊：確保 SCRIPT_NAME 完美符合子目錄結構
 $_SERVER['SCRIPT_NAME'] = '/dolly/index.php';
-$_SERVER['PHP_SELF']    = '/dolly/index.php/tw/';
-$_SERVER['PATH_INFO']   = '/tw/';
-$_SERVER['REQUEST_URI'] = '/dolly/index.php/tw/';
+
+// ⭕ 修正核心：如果發現網址戳進 /dolly/，我們幫它補齊內部的路徑識別，但「絕對不要」把 URI 的 /dolly/ 抹除！
+if ($_SERVER['REQUEST_URI'] === '/dolly/' || $_SERVER['REQUEST_URI'] === '/dolly') {
+    $_SERVER['PATH_INFO'] = '/tw/';
+    $_SERVER['REQUEST_URI'] = '/dolly/index.php/tw/';
+    $_SERVER['PHP_SELF']    = '/dolly/index.php/tw/';
+}
 
 if (!defined('SITE_URL')) {
     define('SITE_URL', 'http://192.168.0.109');
