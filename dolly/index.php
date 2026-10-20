@@ -62,4 +62,4 @@ define('VIEWPATH', $view_folder);
 
 // 載入核心。此時沒有任何 ob_start 阻礙，PHP 核心將會以最健康、最高效的姿態跑完生命週期！
 require_once BASEPATH.'core/CodeIgniter.php';
-
+?>
