@@ -1,56 +1,19 @@
 <?php
 /**
  * CodeIgniter
- * Standard index.php Framework Launcher + 終極反彈跳裝甲
+ * Standard index.php Framework Launcher (真・正統環境校正版)
  */
 
-// ⭕ 終極防線：在全框架任何原始碼長出來之前，開啟輸出緩衝區並掛載自訂回呼函數
-// 這會強制沒收全網頁所有的 Location 跳轉 Header，並強制把狀態碼洗回 200！
-ob_start(function($buffer) {
-    foreach (headers_list() as $header) {
-        if (stripos($header, 'Location:') !== false) {
-            // 抓到了！有人想發動 301/302 跳轉！
-            // 我們直接強行清除所有跳轉 Header，並把狀態碼校正回 200 OK
-            header_remove('Location');
-            header("HTTP/1.1 200 OK", true, 200);
-            header("Status: 200 OK", true, 200);
-            
-            // 既然有人想跳轉，代表畫面可能被清空了。
-            // 我們在最安全墊底的情況下，至少提示或直接把核心準備好的緩衝區畫面吐出來！
-            // 2. 【核心填補大招】既然內部因為跳轉而 exit 導致緩衝區是空的
-            // 我們直接在 PHP 臨死前，親手把 welcome 控制器的 index 畫面撈出來填滿純白！
-            $CI =& get_instance();
-            if (isset($CI)) {
-                // 如果核心已經準備好，強制呼叫並捕獲 welcome 首頁的真實畫面
-                if (!class_exists('Welcome')) {
-                    include_once APPPATH . 'controllers/welcome.php';
-                }
-                $welcome = new Welcome();
-                ob_start();
-                $welcome->index();
-                $real_html = ob_get_clean();
-                return $real_html; // ⭕ 完美的真實首頁畫面直接取代純白！
-            }
-            return $buffer;
-	}
-    }
-    return $buffer;
-});
+// ⭕ 正統環境校正：直接校正全域變數，徹底餵飽並解決 CI3 子目錄與語系套件的大腦盲點！
+$_SERVER['SCRIPT_NAME'] = '/dolly/index.php';
 
-// ⭕【最後的黃金拼圖】在裝甲下方直接補上常數宣告，徹底根除 global_model.php 的 Warning！
-if (!defined('SITE_URL')) {
-    define('SITE_URL', 'http://192.168.0.109');
+// 關鍵核心：當使用者戳 /dolly/ 時，強行將內部的 PATH_INFO 修正為 welcome，讓核心不走進語系彈跳，直接載入首頁！
+if ($_SERVER['REQUEST_URI'] === '/dolly/' || $_SERVER['REQUEST_URI'] === '/dolly' || $_SERVER['REQUEST_URI'] === '/dolly/index.php/') {
+    $_SERVER['PATH_INFO'] = '/welcome';
 }
 
-// 確保基礎環境變數對齊
-$_SERVER['SCRIPT_NAME'] = '/dolly/index.php';
-
-// 確保基礎環境變數對齊
-$_SERVER['SCRIPT_NAME'] = '/dolly/index.php';
-if (strpos($_SERVER['REQUEST_URI'], '/dolly/tw') === false) {
-    // 欺騙大腦已經在語系目錄下
-    $_SERVER['REQUEST_URI'] = '/dolly/index.php/tw/';
-    $_SERVER['PATH_INFO'] = '/tw';
+if (!defined('SITE_URL')) {
+    define('SITE_URL', 'http://192.168.0.109/dolly/');
 }
 
 define('ENVIRONMENT', 'development');
@@ -90,6 +53,6 @@ if (is_dir($application_folder)) {
 $view_folder = is_dir(APPPATH.'views'.DIRECTORY_SEPARATOR) ? APPPATH.'views'.DIRECTORY_SEPARATOR : '';
 define('VIEWPATH', $view_folder);
 
-// 載入核心。此時內部不論怎麼呼叫 exit 或 redirect，都逃不出最上方的 ob_start 攔截網！
+// 載入核心。此時沒有任何 ob_start 阻礙，PHP 核心將會以最健康、最高效的姿態跑完生命週期！
 require_once BASEPATH.'core/CodeIgniter.php';
 
