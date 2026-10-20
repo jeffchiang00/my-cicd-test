@@ -8,12 +8,8 @@
 // 這樣 CI3 內部的語系模組不論怎麼抓變數，都會認為網址「百分之百合乎潔癖格式」，再也找不到任何理由跳轉！
 $_SERVER['SCRIPT_NAME'] = '/dolly/index.php';
 $_SERVER['PHP_SELF']    = '/dolly/index.php/tw/';
-
-// 逼迫大腦認為目前的請求就是帶有 index.php/tw/ 的標準內生格式
-if (strpos($_SERVER['REQUEST_URI'], '/dolly/tw') !== false) {
-    $_SERVER['REQUEST_URI'] = '/dolly/index.php/tw/';
-    $_SERVER['PATH_INFO']   = '/tw/';
-}
+$_SERVER['PATH_INFO']   = '/tw/';
+$_SERVER['REQUEST_URI'] = '/dolly/index.php/tw/';
 
 if (!defined('SITE_URL')) {
     define('SITE_URL', 'http://192.168.0.109');
