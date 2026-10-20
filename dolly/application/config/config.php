@@ -14,11 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://192.168.0.109/dolly/';
-
-if (!defined('SITE_URL')) {
-    define('SITE_URL', $config['base_url']);
-}
+$config['base_url']	= 'http://192.168.0.109';
 
 /*
 |--------------------------------------------------------------------------
@@ -48,7 +44,7 @@ $config['index_page'] = 'index.php';
 | 'ORIG_PATH_INFO'	Uses the ORIG_PATH_INFO
 |
 */
-$config['uri_protocol']	= 'AUTO';
+$config['uri_protocol']	= 'PATH_INFO';
 
 /*
 |--------------------------------------------------------------------------
