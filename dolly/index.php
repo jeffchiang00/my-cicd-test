@@ -7,7 +7,7 @@ ini_set('log_errors', 1);
 //    define('SITE_URL', 'http://192.168.0');
 //}
 
-define('ENVIRONMENT', 'production');
+define('ENVIRONMENT', 'development');
 
 switch (ENVIRONMENT)
 {
