@@ -4,12 +4,19 @@
  * Standard index.php Framework Launcher (語法完美修正 + 官方路由重置版)
  */
 
-// ⭕ 1. 確保基本環境變數完全對齊子目錄
+// ⭕ 終極環境偽裝：把 Nginx 剝離的 index.php 統統補回 PHP 全域變數中！
+// 這樣 CI3 內部的語系模組不論怎麼抓變數，都會認為網址「百分之百合乎潔癖格式」，再也找不到任何理由跳轉！
 $_SERVER['SCRIPT_NAME'] = '/dolly/index.php';
+$_SERVER['PHP_SELF']    = '/dolly/index.php/tw/';
 
-// ⭕【最後的黃金拼圖】在前端直接焊死這個常數，徹底根除 global_model.php 的 Warning！
+// 逼迫大腦認為目前的請求就是帶有 index.php/tw/ 的標準內生格式
+if (strpos($_SERVER['REQUEST_URI'], '/dolly/tw') !== false) {
+    $_SERVER['REQUEST_URI'] = '/dolly/index.php/tw/';
+    $_SERVER['PATH_INFO']   = '/tw/';
+}
+
 if (!defined('SITE_URL')) {
-    define('SITE_URL', 'http://192.168.0.109/dolly/');
+    define('SITE_URL', 'http://192.168.0.109');
 }
 
 define('ENVIRONMENT', 'development');
