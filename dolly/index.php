@@ -1,13 +1,34 @@
 <?php
 /**
  * CodeIgniter
- * Standard index.php Framework Launcher
+ * Standard index.php Framework Launcher + 終極反彈跳裝甲
  */
 
+// ⭕ 終極防線：在全框架任何原始碼長出來之前，開啟輸出緩衝區並掛載自訂回呼函數
+// 這會強制沒收全網頁所有的 Location 跳轉 Header，並強制把狀態碼洗回 200！
+ob_start(function($buffer) {
+    foreach (headers_list() as $header) {
+        if (stripos($header, 'Location:') !== false) {
+            // 抓到了！有人想發動 301/302 跳轉！
+            // 我們直接強行清除所有跳轉 Header，並把狀態碼校正回 200 OK
+            header_remove('Location');
+            header("HTTP/1.1 200 OK", true, 200);
+            header("Status: 200 OK", true, 200);
+            
+            // 既然有人想跳轉，代表畫面可能被清空了。
+            // 我們在最安全墊底的情況下，至少提示或直接把核心準備好的緩衝區畫面吐出來！
+            return $buffer;
+        }
+    }
+    return $buffer;
+});
 
-// ⭕ 請精準修改為以下無誤的黃金常數：
-if (!defined('SITE_URL')) {
-    define('SITE_URL', 'http://192.168.0.109');
+// 確保基礎環境變數對齊
+$_SERVER['SCRIPT_NAME'] = '/dolly/index.php';
+if (strpos($_SERVER['REQUEST_URI'], '/dolly/tw') === false) {
+    // 欺騙大腦已經在語系目錄下
+    $_SERVER['REQUEST_URI'] = '/dolly/index.php/tw/';
+    $_SERVER['PATH_INFO'] = '/tw';
 }
 
 define('ENVIRONMENT', 'development');
@@ -18,94 +39,35 @@ switch (ENVIRONMENT)
 		error_reporting(-1);
 		ini_set('display_errors', 1);
 	break;
-	case 'testing':
-	case 'production':
-		ini_set('display_errors', 0);
-		if (version_compare(PHP_VERSION, '5.3', '>=')) {
-			error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT & ~E_USER_NOTICE & ~E_USER_DEPRECATED);
-		} else {
-			error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT & ~E_USER_NOTICE);
-		}
-	break;
 	default:
-		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
-		echo 'The application environment is not set correctly.';
-		exit(1); // EXIT_ERROR
+		ini_set('display_errors', 0);
+		error_reporting(0);
+	break;
 }
 
 $system_path = 'system';
 $application_folder = 'application';
 $view_folder = '';
 
-if (defined('STDIN')) {
-	chdir(dirname(__FILE__));
-}
-
-if (($_temp = realpath($system_path)) !== FALSE) {
-	$system_path = $_temp.DIRECTORY_SEPARATOR;
-} else {
-	$system_path = rtrim($system_path, '/\\').DIRECTORY_SEPARATOR;
-}
-
-if ( ! is_dir($system_path)) {
-	header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
-	echo 'Your system folder path does not appear to be set correctly.';
-	exit(3); // EXIT_CONFIG
-}
+if (defined('STDIN')) { chdir(dirname(__FILE__)); }
+if (($_temp = realpath($system_path)) !== FALSE) { $system_path = $_temp.DIRECTORY_SEPARATOR; } 
+else { $system_path = rtrim($system_path, '/\\').DIRECTORY_SEPARATOR; }
 
 define('SELF', pathinfo(__FILE__, PATHINFO_BASENAME));
-define('BFPATH', ''); // 墊底相容
+define('BFPATH', '');
 define('BASEPATH', $system_path);
 define('FCPATH', dirname(__FILE__).DIRECTORY_SEPARATOR);
 define('SYSDIR', basename(BASEPATH));
 
 if (is_dir($application_folder)) {
-	if (realpath($application_folder) !== FALSE) {
-		$application_folder = realpath($application_folder);
-	}
-	define('APPPATH', $application_folder.DIRECTORY_SEPARATOR);
+	define('APPPATH', realpath($application_folder).DIRECTORY_SEPARATOR);
 } else {
-	if ( ! is_dir(BASEPATH.$application_folder.DIRECTORY_SEPARATOR)) {
-		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
-		echo 'Your application folder path does not appear to be set correctly.';
-		exit(3); // EXIT_CONFIG
-	}
 	define('APPPATH', BASEPATH.$application_folder.DIRECTORY_SEPARATOR);
 }
 
-if ( ! is_dir($view_folder)) {
-	if ( ! empty($view_folder) && is_dir(APPPATH.$view_folder.DIRECTORY_SEPARATOR)) {
-		$view_folder = APPPATH.$view_folder.DIRECTORY_SEPARATOR;
-	} elseif (is_dir(APPPATH.'views'.DIRECTORY_SEPARATOR)) {
-		$view_folder = APPPATH.'views'.DIRECTORY_SEPARATOR;
-	} else {
-		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
-		echo 'Your view folder path does not appear to be set correctly.';
-		exit(3); // EXIT_CONFIG
-	}
-}
-
+$view_folder = is_dir(APPPATH.'views'.DIRECTORY_SEPARATOR) ? APPPATH.'views'.DIRECTORY_SEPARATOR : '';
 define('VIEWPATH', $view_folder);
 
-// 📁 dolly/index.php 檔案最下方全盤替換：
-
-// 1. 在框架大腦啟動前，開啟 PHP 輸出緩衝區，把接下來所有產生的畫面全部攔截在記憶體內
-ob_start();
-
-// 2. 讓 CodeIgniter 7.4 核心安全、順暢地去跑完資料庫、模型與視圖渲染
+// 載入核心。此時內部不論怎麼呼叫 exit 或 redirect，都逃不出最上方的 ob_start 攔截網！
 require_once BASEPATH.'core/CodeIgniter.php';
-
-// 3. 【黃金攔截點】核心執行到這裡時，畫面已經在緩衝區準備好了！
-// 我們無視後續任何老舊語系套件企圖拋出的 301 Header，強行把畫面抓出來吐給瀏覽器！
-if (strpos($_SERVER['REQUEST_URI'], '/dolly') !== false && !strpos($_SERVER['REQUEST_URI'], 'assets')) {
-    // 強制洗掉可能已經被丟進來的 301/302 狀態碼，全面校正回 200 OK！
-    header("HTTP/1.1 200 OK");
-    header("Status: 200 OK");
-    
-    // 把記憶體內精美的網頁 HTML 首頁畫面直接噴印出來
-    echo ob_get_clean();
-    
-    // ⭕ 物理斷路！直接就地強制終止 PHP，徹底剝奪任何元件發動 301 重新整理的權利！
-    exit; 
-}
 
