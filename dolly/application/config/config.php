@@ -16,6 +16,10 @@
 */
 $config['base_url']	= 'http://192.168.0.109/dolly/';
 
+if (!defined('SITE_URL')) {
+    define('SITE_URL', $config['base_url']);
+}
+
 /*
 |--------------------------------------------------------------------------
 | Index File
