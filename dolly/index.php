@@ -3,9 +3,9 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT & ~E_WARNING);
 ini_set('display_errors', 0);
 ini_set('log_errors', 1);
 
-if (!defined('SITE_URL')) {
-    define('SITE_URL', 'http://192.168.0');
-}
+//if (!defined('SITE_URL')) {
+//    define('SITE_URL', 'http://192.168.0');
+//}
 
 define('ENVIRONMENT', 'production');
 
