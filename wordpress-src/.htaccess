@@ -1,15 +1,9 @@
-# === WordPress 主站的預設路由 ===
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteBase /
 RewriteRule ^index\.php$ - [L]
 
-# 💡 終極解鎖：強制將所有對 dolly 子目錄的語系轉導（如 /dolly/tw/），精準鎖定在 dolly 內部處理，禁止 Apache 越界！
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^dolly/(.*)$ /dolly/index.php/$1 [L]
-
-# === WordPress 的剩餘路由 ===
+# 💡 官方標準：只要請求不是真實檔案或資料夾，就直接直通，由框架內部去認 /tw/ 或是 welcome
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.php [L]
