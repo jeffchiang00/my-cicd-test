@@ -1,15 +1,15 @@
 <?php
 
-// ⭕ 終極斷路器：直接欺騙並閹割語系控制器的彈跳邏輯！
-$_SERVER['SCRIPT_NAME'] = '/dolly/index.php';
-
-// 只要網址含有 /dolly/tw，我們直接強制把 CI3 的內部路由路徑寫死成 welcome，徹底封印所有 redirect
-if (strpos($_SERVER['REQUEST_URI'], '/dolly/tw') !== false) {
-    $_SERVER['PATH_INFO'] = '/welcome';
-    $_SERVER['QUERY_STRING'] = '';
-    $_SERVER['REQUEST_URI'] = '/dolly/index.php/welcome';
+// ⭕ 完全物理斷路器：無視一切 Nginx/Apache 尾部斜線與 301 跳轉，直接強行加載 Welcome 畫面並終止程式！
+if (strpos($_SERVER['REQUEST_URI'], '/dolly') !== false && !strpos($_SERVER['REQUEST_URI'], 'assets')) {
+    // 1. 強制宣告環境正常，堵住 CodeIgniter 的嘴
+    $_SERVER['SCRIPT_NAME'] = '/dolly/index.php';
+    
+    // 2. 這裡就是關鍵：既然進來了，我們不讓 CI 語系控制器有機會發動 redirect()！
+    // 我們直接親手引入 CodeIgniter 核心，並強制導向預設方法，然後直接 exit 斷路！
+    require_once 'system/core/CodeIgniter.php';
+    exit; 
 }
-
 error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT & ~E_WARNING);
 ini_set('display_errors', 0);
 ini_set('log_errors', 1);
