@@ -1,12 +1,13 @@
 <?php
 
-// ⭕ 終極防禦：直接欺騙 CI3 核心，讓它以為網址非常完美，完全跳過任何語系控制器的轉導邏輯！
+// ⭕ 終極斷路器：直接欺騙並閹割語系控制器的彈跳邏輯！
 $_SERVER['SCRIPT_NAME'] = '/dolly/index.php';
 
-// 核心大招：不論 Nginx/Apache 丟進來的是 /dolly/tw 還是 /dolly/tw/
-// 我們統一在 CI3 內部分配路徑前，將 URI 強制重置為乾淨的 'tw'，逼路由表直接認領！
+// 只要網址含有 /dolly/tw，我們直接強制把 CI3 的內部路由路徑寫死成 welcome，徹底封印所有 redirect
 if (strpos($_SERVER['REQUEST_URI'], '/dolly/tw') !== false) {
-    $_SERVER['REQUEST_URI'] = '/dolly/index.php/tw';
+    $_SERVER['PATH_INFO'] = '/welcome';
+    $_SERVER['QUERY_STRING'] = '';
+    $_SERVER['REQUEST_URI'] = '/dolly/index.php/welcome';
 }
 
 error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT & ~E_WARNING);
