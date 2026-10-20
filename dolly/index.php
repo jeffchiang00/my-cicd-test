@@ -23,6 +23,14 @@ ob_start(function($buffer) {
     return $buffer;
 });
 
+// ⭕【最後的黃金拼圖】在裝甲下方直接補上常數宣告，徹底根除 global_model.php 的 Warning！
+if (!defined('SITE_URL')) {
+    define('SITE_URL', 'http://192.168.0.109');
+}
+
+// 確保基礎環境變數對齊
+$_SERVER['SCRIPT_NAME'] = '/dolly/index.php';
+
 // 確保基礎環境變數對齊
 $_SERVER['SCRIPT_NAME'] = '/dolly/index.php';
 if (strpos($_SERVER['REQUEST_URI'], '/dolly/tw') === false) {
