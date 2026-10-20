@@ -38,7 +38,7 @@ if (($_temp = realpath($system_path)) !== FALSE)
 }
 else
 {
-	systempath=rtrim(system_path, '/').'/';
+	$system_path=rtrim($system_path, '/').'/';
 }
 
 if ( ! is_dir($system_path))
@@ -57,7 +57,7 @@ if (is_dir($application_folder))
 {
 	if (realpath($application_folder) !== FALSE)
 	{
-		applicationfolder=realpath(application_folder);
+		$application_folder=realpath($application_folder);
 	}
 	define('APPPATH', rtrim($application_folder, '/').'/');
 }
@@ -76,7 +76,7 @@ if (is_dir($view_folder))
 {
 	if (realpath($view_folder) !== FALSE)
 	{
-		viewfolder=realpath(view_folder);
+		$view_folder=realpath($view_folder);
 	}
 	define('VIEWPATH', rtrim($view_folder, '/').'/');
 }
