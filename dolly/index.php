@@ -7,6 +7,11 @@
 // ⭕ 1. 確保基本環境變數完全對齊子目錄
 $_SERVER['SCRIPT_NAME'] = '/dolly/index.php';
 
+// ⭕【最後的黃金拼圖】在前端直接焊死這個常數，徹底根除 global_model.php 的 Warning！
+if (!defined('SITE_URL')) {
+    define('SITE_URL', 'http://192.168.0.109/dolly/');
+}
+
 define('ENVIRONMENT', 'development');
 
 // ⭕ 2. 完美對齊 switch 區塊，絕對不會再噴出第 66 行的 unexpected end of file 錯誤！
