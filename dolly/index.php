@@ -7,6 +7,11 @@
 // ⭕ 僅保留最標準的環境校正變數，其餘所有自訂的 if 斷路器、exit 全部拔除！
 $_SERVER['SCRIPT_NAME'] = '/dolly/index.php';
 
+// ⭕ 請精準修改為以下無誤的黃金常數：
+if (!defined('SITE_URL')) {
+    define('SITE_URL', 'http://192.168.0.109');
+}
+
 define('ENVIRONMENT', 'development');
 
 switch (ENVIRONMENT)
