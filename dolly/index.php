@@ -103,3 +103,18 @@ else
 }
 
 require_once BASEPATH.'core/CodeIgniter.php';
+
+// 終極防線：讓 CI3 官方核心安全地把常數、資料庫全部初始化完畢後，在發動跳轉前一瞬間，強行把畫面沒收並噴給瀏覽器！
+if (strpos($_SERVER['REQUEST_URI'], '/dolly') !== false && !strpos($_SERVER['REQUEST_URI'], 'assets')) {
+    $CI =& get_instance();
+    // 強制呼叫 welcome 控制器的 index 首頁方法
+    $CI->load->library('modules');
+    if(class_exists('Welcome')) {
+        $welcome = new Welcome();
+        $welcome->index();
+    } else {
+        // 安全墊底：如果控制器名稱是大寫或 HMVC 模組，直接逼迫輸出大腦把渲染好的畫面吐出來
+        $CI->output->_display();
+    }
+    exit; // ⭕ 物理斷路，絕對不給老舊語系套件有機會執行到下方的 301 redirect！
+}
