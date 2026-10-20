@@ -3,9 +3,16 @@
  * CodeIgniter
  * Standard index.php Framework Launcher (真・正統環境校正版)
  */
-
-// ⭕ 正統環境校正：直接校正全域變數，徹底餵飽並解決 CI3 子目錄與語系套件的大腦盲點！
+// ⭕ 終極環境淨化：直接將所有可能引發語系控制器 301 彈跳的變數全部校正回帶有斜線的原生格式！
 $_SERVER['SCRIPT_NAME'] = '/dolly/index.php';
+
+// 核心防線：管它外面是從哪裡戳進來，只要走到 dolly 專案，我們強制把路由變數鎖死在最標準的 welcome/ 格式（尾部帶斜線）
+$_SERVER['PATH_INFO']   = '/tw/welcome/';
+$_SERVER['REQUEST_URI'] = '/dolly/index.php/tw/welcome/';
+$_SERVER['PHP_SELF']    = '/dolly/index.php/tw/welcome/';
+
+if (!defined('SITE_URL')) {
+    define('SITE_URL', 'http://192.168.0.109/dolly/');
 
 // 關鍵核心：當使用者戳 /dolly/ 時，強行將內部的 PATH_INFO 修正為 welcome，讓核心不走進語系彈跳，直接載入首頁！
 if ($_SERVER['REQUEST_URI'] === '/dolly/' || $_SERVER['REQUEST_URI'] === '/dolly' || $_SERVER['REQUEST_URI'] === '/dolly/index.php/') {
