@@ -1,13 +1,13 @@
 <?php
 
-// ⭕ 終極環境校正：修正 SCRIPT_NAME 並動態補齊尾部斜線，徹底粉碎語系套件的 301 跳轉死結！
+// ⭕ 終極防禦：直接欺騙 CI3 核心，讓它以為網址非常完美，完全跳過任何語系控制器的轉導邏輯！
 $_SERVER['SCRIPT_NAME'] = '/dolly/index.php';
 
-// 關鍵防線：如果 Nginx 丟進來的網址是 /dolly/tw 或 /dolly/tw?xxxx，自動幫它補上斜線變成 /dolly/tw/
-if (preg_match('/\/dolly\/tw(\?|$)/', $_SERVER['REQUEST_URI'])) {
-    $_SERVER['REQUEST_URI'] = preg_replace('/\/dolly\/tw/', '/dolly/tw/', $_SERVER['REQUEST_URI'], 1);
+// 核心大招：不論 Nginx/Apache 丟進來的是 /dolly/tw 還是 /dolly/tw/
+// 我們統一在 CI3 內部分配路徑前，將 URI 強制重置為乾淨的 'tw'，逼路由表直接認領！
+if (strpos($_SERVER['REQUEST_URI'], '/dolly/tw') !== false) {
+    $_SERVER['REQUEST_URI'] = '/dolly/index.php/tw';
 }
-
 
 error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT & ~E_WARNING);
 ini_set('display_errors', 0);
