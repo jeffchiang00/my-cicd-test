@@ -43,6 +43,10 @@ $route['404_override'] = '';
 
 $route['([a-zA-Z]{2})/?'] = 'welcome';
 
+// ⭕ 終極路由解鎖：強制叫框架只要看到 tw 網址，就直接導向預設的 welcome 控制器，不准發動 redirect！
+$route['tw'] = 'welcome';
+route['tw/(.*)']='welcome/1';
+
 
 // $route['([a-zA-Z]{2})/shop/?'] = 'shop/index';
 // $route['(:any)/shop/(:any)'] = 'shop/index/$2';
