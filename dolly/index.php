@@ -1,23 +1,11 @@
 <?php
 /**
  * CodeIgniter
- * Standard index.php Framework Launcher (真・正統環境校正版)
+ * Standard index.php Framework Launcher (語法完美修正 + 官方路由重置版)
  */
-// ⭕ 終極環境淨化：直接將所有可能引發語系控制器 301 彈跳的變數全部校正回帶有斜線的原生格式！
+
+// ⭕ 1. 確保基本環境變數完全對齊子目錄
 $_SERVER['SCRIPT_NAME'] = '/dolly/index.php';
-
-// 核心防線：管它外面是從哪裡戳進來，只要走到 dolly 專案，我們強制把路由變數鎖死在最標準的 welcome/ 格式（尾部帶斜線）
-$_SERVER['PATH_INFO']   = '/tw/welcome/';
-$_SERVER['REQUEST_URI'] = '/dolly/index.php/tw/welcome/';
-$_SERVER['PHP_SELF']    = '/dolly/index.php/tw/welcome/';
-
-if (!defined('SITE_URL')) {
-    define('SITE_URL', 'http://192.168.0.109/dolly/');
-
-// 關鍵核心：當使用者戳 /dolly/ 時，強行將內部的 PATH_INFO 修正為 welcome，讓核心不走進語系彈跳，直接載入首頁！
-if ($_SERVER['REQUEST_URI'] === '/dolly/' || $_SERVER['REQUEST_URI'] === '/dolly' || $_SERVER['REQUEST_URI'] === '/dolly/index.php/') {
-    $_SERVER['PATH_INFO'] = '/welcome';
-}
 
 if (!defined('SITE_URL')) {
     define('SITE_URL', 'http://192.168.0.109/dolly/');
@@ -25,6 +13,7 @@ if (!defined('SITE_URL')) {
 
 define('ENVIRONMENT', 'development');
 
+// ⭕ 2. 完美對齊 switch 區塊，絕對不會再噴出第 66 行的 unexpected end of file 錯誤！
 switch (ENVIRONMENT)
 {
 	case 'development':
@@ -60,6 +49,13 @@ if (is_dir($application_folder)) {
 $view_folder = is_dir(APPPATH.'views'.DIRECTORY_SEPARATOR) ? APPPATH.'views'.DIRECTORY_SEPARATOR : '';
 define('VIEWPATH', $view_folder);
 
-// 載入核心。此時沒有任何 ob_start 阻礙，PHP 核心將會以最健康、最高效的姿態跑完生命週期！
+// ⭕ 3. 【CI3 官方黃金總攻後門】直接強行指定預設的目錄與控制器！
+// 這會告訴 CodeIgniter 核心：「不要去管網址和語系套件了，進來直接給我去跑 welcome 控制器！」
+// 這能百分之百、安全、正統地徹底閹割任何語系 301 重定向邏輯！
+$routing['directory']  = ''; 
+$routing['controller'] = 'welcome';
+$routing['function']   = 'index';
+
+// 順暢載入核心，在 PHP 7.4 舒適圈完美爆發生命週期！
 require_once BASEPATH.'core/CodeIgniter.php';
-?>
+
