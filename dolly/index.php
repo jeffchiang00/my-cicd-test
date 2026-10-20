@@ -4,8 +4,6 @@
  * Standard index.php Framework Launcher
  */
 
-// ⭕ 僅保留最標準的環境校正變數，其餘所有自訂的 if 斷路器、exit 全部拔除！
-$_SERVER['SCRIPT_NAME'] = '/dolly/index.php';
 
 // ⭕ 請精準修改為以下無誤的黃金常數：
 if (!defined('SITE_URL')) {
@@ -89,6 +87,25 @@ if ( ! is_dir($view_folder)) {
 
 define('VIEWPATH', $view_folder);
 
-// ⭕ 讓標準核心在 PHP 7.4 舒適圈順暢跑完生命週期！
+// 📁 dolly/index.php 檔案最下方全盤替換：
+
+// 1. 在框架大腦啟動前，開啟 PHP 輸出緩衝區，把接下來所有產生的畫面全部攔截在記憶體內
+ob_start();
+
+// 2. 讓 CodeIgniter 7.4 核心安全、順暢地去跑完資料庫、模型與視圖渲染
 require_once BASEPATH.'core/CodeIgniter.php';
+
+// 3. 【黃金攔截點】核心執行到這裡時，畫面已經在緩衝區準備好了！
+// 我們無視後續任何老舊語系套件企圖拋出的 301 Header，強行把畫面抓出來吐給瀏覽器！
+if (strpos($_SERVER['REQUEST_URI'], '/dolly') !== false && !strpos($_SERVER['REQUEST_URI'], 'assets')) {
+    // 強制洗掉可能已經被丟進來的 301/302 狀態碼，全面校正回 200 OK！
+    header("HTTP/1.1 200 OK");
+    header("Status: 200 OK");
+    
+    // 把記憶體內精美的網頁 HTML 首頁畫面直接噴印出來
+    echo ob_get_clean();
+    
+    // ⭕ 物理斷路！直接就地強制終止 PHP，徹底剝奪任何元件發動 301 重新整理的權利！
+    exit; 
+}
 
