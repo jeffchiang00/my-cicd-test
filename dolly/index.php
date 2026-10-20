@@ -1,8 +1,13 @@
 <?php
 
-// ⭕ 終極環境校正：直接告訴 CI3 它是部署在 /dolly/ 子目錄下，徹底擊碎語系套件的無限跳轉！
+// ⭕ 終極環境校正：修正 SCRIPT_NAME 並動態補齊尾部斜線，徹底粉碎語系套件的 301 跳轉死結！
 $_SERVER['SCRIPT_NAME'] = '/dolly/index.php';
-$_SERVER['REQUEST_URI'] = str_replace('/dolly/index.php/', '/dolly/', $_SERVER['REQUEST_URI']);
+
+// 關鍵防線：如果 Nginx 丟進來的網址是 /dolly/tw 或 /dolly/tw?xxxx，自動幫它補上斜線變成 /dolly/tw/
+if (preg_match('/\/dolly\/tw(\?|$)/', $_SERVER['REQUEST_URI'])) {
+    $_SERVER['REQUEST_URI'] = preg_replace('/\/dolly\/tw/', '/dolly/tw/', $_SERVER['REQUEST_URI'], 1);
+}
+
 
 error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT & ~E_WARNING);
 ini_set('display_errors', 0);
