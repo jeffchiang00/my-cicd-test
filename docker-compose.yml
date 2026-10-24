@@ -85,6 +85,9 @@ services:
     environment:
       - TZ=Asia/Taipei
       - JAVA_OPTS=-Duser.timezone=Asia/Taipei -Xms128m -Xmx512m
+   # 💡 【核心：方案 A 精髓】把虛擬機本機剛才放的 war 檔，即時掛載進 Tomcat 容器
+    volumes:
+      - /root/build-assets/axe_point_system.war:/usr/local/tomcat/webapps/ROOT.war
 
 volumes:
   db_data:

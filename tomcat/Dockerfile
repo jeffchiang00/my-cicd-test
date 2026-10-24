@@ -7,7 +7,7 @@ RUN rm -rf /usr/local/tomcat/webapps/ROOT
 
 # 2. 【關鍵】把您原本「完全沒經過工具轉換」的原始舊專案 war 檔，
 #    直接放到 webapps-javaee 目錄下並命名為 ROOT.war。
-COPY axe_point_system.war /usr/local/tomcat/webapps/ROOT.war
+#COPY axe_point_system.war /usr/local/tomcat/webapps/ROOT.war
 
 # 3. 放入您的 MySQL 8.0.30 驅動程式
 COPY mysql-connector-java-8.0.30.jar /usr/local/tomcat/lib/
