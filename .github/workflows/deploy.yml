@@ -18,10 +18,13 @@ jobs:
           echo "🚚 1. 確保目標持久化目錄空間存在..."
           sudo mkdir -p /var/lib/docker/volumes/my-project_wp_data/_data/
 
-          echo "🚚 2. 將 CodeIgniter 專案核心檔案複製進持久化空間..."
-          # 註：這裡假設您的 CI 原始碼在倉庫根目錄，或者您可以指定 codeigniter-src/.
-          if [ -d "codeigniter-src" ]; then
-              sudo cp -a codeigniter-src/. /var/lib/docker/volumes/my-project_wp_data/_data/
+          # 💡 【核心修正】因為自建 Runner 會把程式碼下載在當前工作目錄的 wordpress-src 下
+          # 我們用 -a 精準把當前目錄下的 wordpress-src 攤平複製到 Docker Volume 根目錄中
+          echo "🚚 2. 將自建 Runner 下的 wordpress-src 核心程式碼平鋪投放進去..."
+          if [ -d "wordpress-src" ]; then
+              sudo cp -a wordpress-src/. /var/lib/docker/volumes/my-project_wp_data/_data/
+          else
+              echo "⚠️ 警告：找不到 wordpress-src 資料夾，請確認您的 Git 倉庫結構！"
           fi
 
           echo "🚚 3. 精準建立獨立的小寫 dolly 目錄..."
@@ -34,7 +37,6 @@ jobs:
 
           echo "🚚 5. 強制刷新網頁目錄讀寫權限 (FPM/Nginx 預設 33:33)..."
           sudo chown -R 33:33 /var/lib/docker/volumes/my-project_wp_data/_data/
-
       - name: 3. 執行本機 Docker 獨立編譯與重載
         run: |
           echo "🔄 目前工作目錄在: $(pwd)"
