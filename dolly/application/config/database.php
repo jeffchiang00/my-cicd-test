@@ -48,35 +48,9 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-
-$db['default'] = array(
-	'dsn'	=> '',
-	'hostname' => 'db',        // 👈 精準鎖定實實運行的 MariaDB 內網 IP
-	'username' => 'root',              // 👈 帳號
-	'password' => 'root_password',          // 👈 密碼
-	'database' => 'gapure_dolly',      // 👈 資料庫名稱
-	'dbdriver' => 'mysqli',
-	'dbprefix' => '',
-	'pconnect' => FALSE,
-	'db_debug' => (ENVIRONMENT !== 'production'),
-	'cache_on' => FALSE,
-	'cachedir' => '',
-	'char_set' => 'utf8',
-	'dbcollat' => 'utf8_general_ci',
-	'swap_pre' => '',
-	'encrypt' => FALSE,
-	'compress' => FALSE,
-	'stricton' => FALSE,
-	'failover' => array(),
-	'save_queries' => TRUE
-);
-
-
-
-/*
-$db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'jerryliu';//dolly_ci
-$db['default']['password'] = 'X0921565659x+';//19880810
+$db['default']['hostname'] = 'db';
+$db['default']['username'] = 'root';//dolly_ci
+$db['default']['password'] = 'root_password';//19880810
 $db['default']['database'] = 'gapure_dolly';//dolly_ci
 $db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';
@@ -89,7 +63,7 @@ $db['default']['dbcollat'] = 'utf8_general_ci';
 $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
-*/
+
 
 /* End of file database.php */
 /* Location: ./application/config/database.php */
