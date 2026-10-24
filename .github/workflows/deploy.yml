@@ -1,0 +1,47 @@
+name: 雙系統本地虛擬機推演流水線 (地表最強自建 Runner 版)
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: self-hosted
+
+    steps:
+      - name: 1. 檢出 Git 最新程式碼
+        uses: actions/checkout@v3
+
+      - name: 2. 本地直接熱同步 CodeIgniter 專案原始碼
+        run: |
+          echo "🚚 1. 確保目標持久化目錄空間存在..."
+          sudo mkdir -p /var/lib/docker/volumes/my-project_wp_data/_data/
+
+          echo "🚚 2. 將 CodeIgniter 專案核心檔案複製進持久化空間..."
+          # 註：這裡假設您的 CI 原始碼在倉庫根目錄，或者您可以指定 codeigniter-src/.
+          if [ -d "codeigniter-src" ]; then
+              sudo cp -a codeigniter-src/. /var/lib/docker/volumes/my-project_wp_data/_data/
+          fi
+
+          echo "🚚 3. 精準建立獨立的小寫 dolly 目錄..."
+          sudo mkdir -p /var/lib/docker/volumes/my-project_wp_data/_data/dolly
+
+          echo "🚚 4. 將獨立的 dolly 原始碼平鋪投放進去..."
+          if [ -d "dolly" ]; then
+              sudo cp -a dolly/. /var/lib/docker/volumes/my-project_wp_data/_data/dolly/
+          fi
+
+          echo "🚚 5. 強制刷新網頁目錄讀寫權限 (FPM/Nginx 預設 33:33)..."
+          sudo chown -R 33:33 /var/lib/docker/volumes/my-project_wp_data/_data/
+
+      - name: 3. 執行本機 Docker 獨立編譯與重載
+        run: |
+          echo "🔄 進入 Docker 專案配置目錄..."
+          cd /root/my-project
+          
+          echo "🔄 讀取各自的 Dockerfile 並強制重新編譯、建立最新容器..."
+          sudo docker compose up -d --build --remove-orphans
+          
+          echo "🎉 [Success] 純 PHP-FPM 5.6 與 Tomcat 9 獨立 Dockerfile 編譯刷新完成！"
+
