@@ -37,13 +37,12 @@ jobs:
 
       - name: 3. 執行本機 Docker 獨立編譯與重載
         run: |
-          echo "🔄 目前工作目錄路徑為: $(pwd)"
-          echo "🔄 檢查當前目錄下的檔案:"
-          ls -la 
+          echo "🔄 目前工作目錄在: $(pwd)"
+          echo "🔍 檢查目前拉下來的最新環境設定檔:"
+          ls -la
           
-          echo "🔄 使用當前檢出的設定檔強制重新編譯、建立最新容器..."
-          # 💡 直接在當前 Git 檢出目錄執行，並確保使用 -f 指定目前的 docker-compose.yml
-          sudo docker compose -f ./docker-compose.yml up -d --build --remove-orphans 
-
-          echo "🎉 [Success] 純 PHP-FPM 5.6 與 Tomcat 9 獨立 Dockerfile 編譯刷新完成！"
-
+          echo "🔄 核心動能：直接使用當前目錄剛檢出的 Docker 結構進行編譯啟動..."
+          # 💡 因為結構完全一致，直接在當前目錄執行 up -d 即可！
+          sudo docker compose up -d --build --remove-orphans
+          
+          echo "🎉 [Success] 純 PHP-FPM 5.6 與 Tomcat 9 全新多容器環境同步刷新完
