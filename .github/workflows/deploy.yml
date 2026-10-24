@@ -47,4 +47,4 @@ jobs:
           # 💡 因為結構完全一致，直接在當前目錄執行 up -d 即可！
           sudo docker compose up -d --build --remove-orphans
           
-          echo "🎉 [Success] 純 PHP-FPM 5.6 與 Tomcat 9 全新多容器環境同步刷新完
+          echo "🎉 [Success] 純 PHP-FPM 5.6 與 Tomcat 9 全新多容器環境同步刷新完成"
